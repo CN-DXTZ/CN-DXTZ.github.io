@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	<title>DXTZ</title>
+	<link rel="icon" href="/images/favicon.ico">
+
+	
+<link rel="stylesheet" href="/css/style.css">
+
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/prism.css" rel="stylesheet">
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <header class="header">
+
+	<div class="blog-title">
+		<a href="/" class="logo">DXTZ</a>
+	</div>
+
+	<nav class="navbar">
+		<ul class="menu">
+			
+			<li class="menu-item">
+
+				<a href="/" class="menu-item-link">
+					首页
+				</a>
+
+			</li>
+			
+			<li class="menu-item">
+
+				<a href="/categories" class="menu-item-link">
+					分类
+				</a>
+
+			</li>
+			
+			<li class="menu-item">
+
+				<a href="/archives" class="menu-item-link">
+					归档
+				</a>
+
+			</li>
+			
+			<li class="menu-item">
+
+				<a href="/tags" class="menu-item-link">
+					标签
+				</a>
+
+			</li>
+			
+			<li class="menu-item">
+
+				<a href="/about" class="menu-item-link">
+					关于
+				</a>
+
+			</li>
+			
+		</ul>
+	</nav>
+
+</header>
+
+    <main class="main">
+        <section class="posts">
+	<article class="post">
+    <div class="post-header">
+    <h1 class="post-title">
+        <a class="post-title-link" href="/工具配置/博客/Hexo/Hexo 主题制作/">
+            Hexo 主题制作
+        </a>
+    </h1>
+
+    <div class="post-info">
+
+        <span class="post-date">
+            <i class="fa fa-calendar"></i>
+            2020-02-18
+        </span>
+
+        <span class="post-words">
+            <i class="fa fa-pencil-square-o"></i>
+            509字
+        </span>
+
+        <span class="post-readtime">
+            <i class="fa fa-clock-o"></i>
+            1分钟
+        </span>
+
+    </div>
+
+    <div class="post-belong">
+
+        <div class="post-tags">
+            <i class="fa fa-tags"></i>
+            
+            <a href="/tags/Hexo-Theme/"> Hexo Theme</a>
+        </div>
+
+        <div class="post-categories">
+            <i class="fa fa-folder-open"></i>
+            
+            
+        </div>
+    </div>
+</div>
+
+    <div class="post-content">
+        <p>1<br><a id="more"></a></p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>阅读官方<a href="https://hexo.io/zh-cn/docs/templates.html" target="_blank" rel="noopener">主题</a>文档：</p>
+<p>布局模板决定了页面的结构，而通过回调，每个主题都包含了 index 模板，以下是各页面相对应的模板：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模板</th>
+<th style="text-align:center">页面</th>
+<th style="text-align:center">回调</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">index</td>
+<td style="text-align:center">首页</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">post</td>
+<td style="text-align:center">文章</td>
+<td style="text-align:center">index</td>
+</tr>
+<tr>
+<td style="text-align:center">page</td>
+<td style="text-align:center">分页</td>
+<td style="text-align:center">index</td>
+</tr>
+<tr>
+<td style="text-align:center">archive</td>
+<td style="text-align:center">归档</td>
+<td style="text-align:center">index</td>
+</tr>
+<tr>
+<td style="text-align:center">category</td>
+<td style="text-align:center">分类归档</td>
+<td style="text-align:center">archive</td>
+</tr>
+<tr>
+<td style="text-align:center">tag</td>
+<td style="text-align:center">标签归档</td>
+<td style="text-align:center">archive</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hexo 的生成原理也很简单，主要由 generator 和 renderer 构成：</p>
+<ul>
+<li>generator 通过上述布局模板生成页面及控制目录结构：</li>
+<li>renderer 负责渲染页面，（本文主要负责修改的部分，选择默认技术栈）：<ul>
+<li>ejs：即上述布局模板，可以简单理解为 JS + HTML</li>
+<li>stylus：可以简单理解为 CSS</li>
+</ul>
+</li>
+</ul>
+<p>以下正式进行主题的制作</p>
+<h2 id="主题文件初始化"><a href="#主题文件初始化" class="headerlink" title="主题文件初始化"></a>主题文件初始化</h2><p>首先初始化主题文件，以下通过 yo 和 generator-hexo-theme 自动生成（亦可以手动新建各文件）：<br>先安装包，在命令行输入并执行：</p>
+<pre><code>npm install yo -g
+npm install generator-hexo-theme -g
+</code></pre><p>然后在命令行进入待创建主题的文件夹，输入并执行下列命令：</p>
+<pre><code>yo hexo-theme
+</code></pre><p>并进行可选项选择，包括：主题名，技术栈，其他等，效果如下:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/HexoTheme_1.jpg" alt="HexoTheme_1.jpg"></p>
+<p>执行完毕后即主题文件初始化基本完成，再稍作修改：</p>
+<ul>
+<li>新建文件夹：/languages/ </li>
+<li>修改文件夹名：/layout/partial/ 改为 /layout/_partial/ </li>
+<li>新建文件夹： /source/fonts/ </li>
+<li>新建文件夹： /source/images/ 并将 favicon.ico 移入</li>
+</ul>
+<p>最终目录结构及对应的意义如下：</p>
+<pre><code>├── languages ### 语言支持
+├── layout ### 布局模块文件夹 
+│   ├── _partial ### 可重复利用的局部布局模块文件夹 
+│   ├── archive.ejs ### 归档 ejs 布局 
+│   ├── category.ejs ### 分类 ejs 布局 
+│   ├── index.ejs ### 首页 ejs  ejs 布局 
+│   ├── layout.ejs ### 主 ejs 布局 
+│   ├── page.ejs ### 分页 ejs 布局 
+│   ├── post.ejs ### 文章详情 ejs 布局 
+│   └── tag.ejs ### 标签 ejs 布局
+└── source ### 资源文件夹
+│   ├── css ### css 文件夹 
+│   │   └── 主题名.styl ### styl 渲染
+│   ├── fonts ### 字体文件夹
+│   ├── images ### 图片文件夹
+│   │   └──  favicon.ico ### 网站图标 
+│   └── js ## js 文件夹 
+│       └── 主题名.js ### js 脚本 
+└── _config.yml ### 主题的配置文件
+</code></pre>
+    </div>
+
+    <!-------------------- 上下篇 -------------------->
+
+</article>
+</section>	
+
+    </main>
+
+    <!-- <div class="footer">
+	<p class="platform">
+		
+			<a  href="mailto:dengbin1213@gmail.com" target="_blank">
+				<img class="platform-icon" src="/images/icon/gmail.svg"/>
+			</a>
+		
+			<a  href="https://github.com/CN-DXTZ" target="_blank">
+				<img class="platform-icon" src="/images/icon/github.svg"/>
+			</a>
+		
+			<a  href="https://www.zhihu.com/people/DXTZ/" target="_blank">
+				<img class="platform-icon" src="/images/icon/zhihu.svg"/>
+			</a>
+		
+			<a  href="mailto:2924380441@qq.com" target="_blank">
+				<img class="platform-icon" src="/images/icon/email.svg"/>
+			</a>
+		
+	</p>
+	
+	<p class="copyright">
+			Copyright © 2018 - 2019 &nbsp&nbsp&nbsp&nbsp
+			<a href="/" target="_blank">DXTZ</a> 
+	</p>
+</div> -->
+
+    
+<script src="/js/navbar.js"></script>
+
+
+<script src="/js/code.js"></script>
+
+
+<script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/instantpage-3.0.0.js" type="module"></script>
+<script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/prism.js" type="module"></script>
+</body>
+
+</html>

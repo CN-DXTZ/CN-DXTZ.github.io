@@ -1,8 +1,16 @@
+html,
 body {
   background-color: #d7eed9;
   color: #0d2f0f;
   font-size: 1.4vw;
   line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.main {
+  flex: 1;
 }
 ::selection {
   background-color: #81c784;
@@ -89,7 +97,7 @@ body {
   margin-left: 0.2vw;
 }
 main>.posts {
-  margin-top: 14vw;
+  margin-top: 12vw;
 }
 .posts .post {
   margin: 1vw 11vw 9vw 11vw;
@@ -149,6 +157,9 @@ main>.posts {
 }
 .posts .post .post-header .post-info .fa {
   margin-left: 1.5vw;
+}
+.posts .post .post-header .post-info i {
+  font-size: 1.6vw;
 }
 .posts .post .post-header .post-belong {
   color: #388e3c;
@@ -266,8 +277,8 @@ main>.posts {
   right: 1vw;
 }
 .posts .post .post-content ul>li::before {
-  content: "\f111";
-  font-family: "FontAwesome" !important;
+  content: "\e75b";
+  font-family: "iconfont" !important;
   color: #4caf50;
   font-weight: bold;
   font-size: 1.2vw;
@@ -275,13 +286,13 @@ main>.posts {
   right: 0.5vw;
 }
 .posts .post .post-content ul>li >ul>li::before {
-  content: "\f192";
+  content: "\e7c2";
 }
 .posts .post .post-content ul>li >ul>li >ul>li::before {
-  content: "\f10c";
+  content: "\e63e";
 }
 .posts .post .post-content ul>li >ul>li >ul>li >ul>li::before {
-  content: "\f1db";
+  content: "\e63c";
 }
 .posts .post .post-content ul>li:hover::before {
   color: #ff9800;
@@ -488,8 +499,8 @@ main>.posts {
   padding-left: 2.5vw;
 }
 .categories-main-container .category-deep-1 .category-item .name::before {
-  content: "\f111";
-  font-family: "FontAwesome" !important;
+  content: "\e75b";
+  font-family: "iconfont" !important;
   color: #4caf50;
   font-weight: bold;
   font-size: 1.7vw;
@@ -500,19 +511,19 @@ main>.posts {
   padding-left: 5vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-item .name::before {
-  content: "\f192";
+  content: "\e7c2";
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-item .name {
   padding-left: 7.5vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-item .name::before {
-  content: "\f10c";
+  content: "\e63e";
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-deep-4 .category-item .name {
   padding-left: 10vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-deep-4 .category-item .name::before {
-  content: "\f1db";
+  content: "\e63c";
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-deep-4 .category-deep-5 .category-item .name {
   padding-left: 12.5vw;
@@ -542,6 +553,10 @@ main>.posts {
 .category-page-container .category-page-title .category_title {
   color: color-fonts;
   font-size: 2.5vw;
+}
+.category-page-container .category-page-title .iconfont {
+  font-size: 2.3vw;
+  margin-right: 0.5vw;
 }
 .tags-main-container {
   display: flex;
@@ -600,6 +615,10 @@ main>.posts {
   color: color-fonts;
   font-size: 2.5vw;
 }
+.tag-page-container .tag-page-title .iconfont {
+  font-size: 2.3vw;
+  margin-right: 0.5vw;
+}
 .pager-nav {
   text-align: center;
 }
@@ -627,25 +646,27 @@ main>.posts {
   color: #0d2f0f;
 }
 .footer {
-  text-align: center;
-  background: -webkit-linear-gradient(left, #a5d6a7 0%, #4caf50 50%, #a5d6a7 100%);
-  font-family: "Source Sans Pro";
-  color: #fff;
-  height: 160px;
+  background: linear-gradient(to right, #81c784, #43a047, #81c784);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.footer .platform a {
+.footer .platform {
+  margin-top: 2vw;
+}
+.footer .platform .iconfont {
+  font-size: 3vw;
+  margin: 0 0.75vw;
+  color: #fff;
   text-decoration: none;
 }
-.footer .platform .platform-icon {
-  padding: 35px 10px 0 10px;
-}
-.footer .copyright {
-  font-size: 20px;
-  margin: 0 0 30px 0;
-  text-decoration-style: dotted;
+.footer .copyright-info {
+  font-size: 1.7vw;
+  margin: 1.2vw 0 2vw 0;
   color: #fff;
+  font-weight: bold;
 }
-.footer .copyright a {
+.footer .copyright-info a {
   text-decoration: none;
   color: #fff;
 }

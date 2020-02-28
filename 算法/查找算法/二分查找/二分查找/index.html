@@ -10,7 +10,7 @@
 	
 <link rel="stylesheet" href="/css/style.css">
 
-	<link href="//at.alicdn.com/t/font_1660778_oyr72dgmupo.css" rel="stylesheet">
+	<link href="//at.alicdn.com/t/font_1660778_llo3tsvtukh.css" rel="stylesheet">
 	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/prism.css" rel="stylesheet">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -116,10 +116,11 @@
 
     <div class="post-content">
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>二分查找，是一种基于比较目标值和中间元素值的一种快速查找算法，时间复杂度仅为 O(log(n))。<br>其优点是比较次数少，查找速度快，平均性能好；缺点是要求元素有序排列。</p>
+二分查找，是一种基于比较目标值和中间元素值的一种快速查找算法，时间复杂度仅为 O(log(n))。<br>其优点是比较次数少，查找速度快，平均性能好；缺点是要求元素有序排列。
 </blockquote>
 <a id="more"></a>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>二分查找的原理很简单，就是“夹逼法”亦或者“排除法”的思想，<br>即每次向目标范围逼近一半亦或者每次排除掉一半无效范围的元素，具体的：<br>首先，<br>将序列的中间位置的值和目标值进行比较：</p>
+
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2>二分查找的原理很简单，就是“夹逼法”亦或者“排除法”的思想，<br>即每次向目标范围逼近一半亦或者每次排除掉一半无效范围的元素，具体的：<br>首先，<br>将序列的中间位置的值和目标值进行比较：
 <ul>
 <li>若两者相等，则查找成功</li>
 <li>否则若两者不等，由中间位置将目标序列分割为：左子序列，中间位置，右子序列，然后：<ul>
@@ -128,13 +129,13 @@
 </ul>
 </li>
 </ul>
-<p>然后重复上述步骤，直至：</p>
+然后重复上述步骤，直至：
 <ul>
 <li>两者相等，则查找成功，返回对应位置</li>
 <li>子序列不存在，则查找失败，返回 -1</li>
 </ul>
-<p>二分查找的传统版代码如下：</p>
-<pre><code class="lang-java">public int binarySearch(int[] nums, int target) {
+二分查找的传统版代码如下：
+<pre><code class="java">public int binarySearch(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
     while (left &lt;= right) {
         int mid = (left + right) / 2;
@@ -146,39 +147,35 @@
             right = mid - 1;
     }
     return -1;
-}
-</code></pre>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>以上二分查找的传统版十分易于理解，但存在以下一些细节上的不足，并针对性地进行改良提升：</p>
-<h3 id="中间位置索引计算，防溢出"><a href="#中间位置索引计算，防溢出" class="headerlink" title="中间位置索引计算，防溢出"></a>中间位置索引计算，防溢出</h3><p>传统版中间位置索引计算如下：</p>
-<pre><code class="lang-java">mid = (left + right) / 2;
-</code></pre>
-<p>由于 (left + right) 可能存在溢出（大于 MAX_INT），故修改为：</p>
-<pre><code class="lang-java">mid = left + (right - left) / 2 ;
-</code></pre>
-<p>又假若 left 为负，(right - left) 仍可能溢出（概率极小），故进一步修改为：</p>
-<pre><code class="lang-java"> mid = (left + right) &gt;&gt;&gt; 1 ; // &quot;&gt;&gt;&gt;&quot; 无符号右移
-</code></pre>
-<h3 id="查找失败，返回顺序插入位置"><a href="#查找失败，返回顺序插入位置" class="headerlink" title="查找失败，返回顺序插入位置"></a>查找失败，返回顺序插入位置</h3><p>传统版对于目标值不存在于目标序列时，仅返回 -1 提示查找失败，不实用<br>故将其改良为查找在序列中顺序插入目标值的位置，使算法的实用性更强<br>即返回序列中不小于目标值的最小（第一个）索引，没有则返回序列长度（末端元素索引 +1）</p>
-<p>该改进相对于传统版而言，仅当查找失败，不存在相等值时，需更为具体地返回顺序插入位置，具体分析如下：<br>（<em>后续分析用 L 表示左端索引，R 表示右端索引，M 表示二分中间点索引，T 表示目标值被顺序插入的位置索引</em>）</p>
+}</code></pre>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2>以上二分查找的传统版十分易于理解，但存在以下一些细节上的不足，并针对性地进行改良提升：
+<h3 id="中间位置索引计算，防溢出"><a href="#中间位置索引计算，防溢出" class="headerlink" title="中间位置索引计算，防溢出"></a>中间位置索引计算，防溢出</h3>传统版中间位置索引计算如下：
+<pre><code class="java">mid = (left + right) / 2; </code></pre>
+由于 (left + right) 可能存在溢出（大于 MAX_INT），故修改为：
+<pre><code class="java">mid = left + (right - left) / 2 ;</code></pre>
+又假若 left 为负，(right - left) 仍可能溢出（概率极小），故进一步修改为：
+<pre><code class="java"> mid = (left + right) &gt;&gt;&gt; 1 ; // &quot;&gt;&gt;&gt;&quot; 无符号右移</code></pre>
+<h3 id="查找失败，返回顺序插入位置"><a href="#查找失败，返回顺序插入位置" class="headerlink" title="查找失败，返回顺序插入位置"></a>查找失败，返回顺序插入位置</h3>传统版对于目标值不存在于目标序列时，仅返回 -1 提示查找失败，不实用<br>故将其改良为查找在序列中顺序插入目标值的位置，使算法的实用性更强<br>即返回序列中不小于目标值的最小（第一个）索引，没有则返回序列长度（末端元素索引 +1）
+该改进相对于传统版而言，仅当查找失败，不存在相等值时，需更为具体地返回顺序插入位置，具体分析如下：<br>（<em>后续分析用 L 表示左端索引，R 表示右端索引，M 表示二分中间点索引，T 表示目标值被顺序插入的位置索引</em>）
 <ul>
 <li>当 L 和 R 间隔较大时，必有 T ∈ [L, R]，继续循环查找；</li>
-<li>当 L 和 R 间隔较小时，迭代情况如下图1：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_7.png" alt="二分查找_7.png"><center>图1</center><br>上图1展示了 L 与 R 差为 3, 2, 1, 0 时的所有相对位置情况，并持续迭代直至最终退出循环，实线表示迭代顺序，虚线表示同类情形，四个小格子（为了能表示多种索引在某个位置重叠）为一个大格子表示一个实际序列位置，其中若有重叠，由于 T 的顺序插入原则，必有 nums[T] ≤ nums[L/R/M]，故 T 必显示在左侧以彰显大小关系。<br>注：图中实线的条件判断存在错误，应为 nums[] 的比较，而非索引的比较。</li>
+<li>当 L 和 R 间隔较小时，迭代情况如下图1：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE_7.png" alt="二分查找_7.png"><center>图1</center><br>上图1展示了 L 与 R 差为 3, 2, 1, 0 时的所有相对位置情况，并持续迭代直至最终退出循环，实线表示迭代顺序，虚线表示同类情形，四个小格子（为了能表示多种索引在某个位置重叠）为一个大格子表示一个实际序列位置，其中若有重叠，由于 T 的顺序插入原则，必有 nums[T] ≤ nums[L/R/M]，故 T 必显示在左侧以彰显大小关系。<br>注：图中实线的条件判断存在错误，应为 nums[] 的比较，而非索引的比较。</li>
 </ul>
-<p>由上图1可知，当 L 与 R 间隔较小时，有可能出现<strong>蓝色框</strong>中的情形：<br>即当 M = T = L + 1，R = L + 1 或 L + 2 时，进一步迭代会出现 T ∉ [L, R]，<br>故需要对最后的情况进行更为详细的分析如下。</p>
-<p>显然，根据循环条件，循环终止时，必有 L = R + 1。<br>而要形成此情况，必为图1中<strong>绿色框</strong>中的情况再循环迭代一步而来。<br>具体分析而言，迭代的情况只有以下两种：</p>
+由上图1可知，当 L 与 R 间隔较小时，有可能出现<strong>蓝色框</strong>中的情形：<br>即当 M = T = L + 1，R = L + 1 或 L + 2 时，进一步迭代会出现 T ∉ [L, R]，<br>故需要对最后的情况进行更为详细的分析如下。
+显然，根据循环条件，循环终止时，必有 L = R + 1。<br>而要形成此情况，必为图1中<strong>绿色框</strong>中的情况再循环迭代一步而来。<br>具体分析而言，迭代的情况只有以下两种：
 <ul>
 <li>L = M 且将执行 R = M - 1：<br>  由执行 R = M - 1 可知判断条件为 M &gt; T，又 L &lt;= T，故 T = L = M。<br>  又由 L = M 可知 R = L 或 R = L + 1 如下图2：</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_5.png" alt="二分查找_5.png"><center>图2</center></p>
+<img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE_5.png" alt="二分查找_5.png"><center>图2</center>
 <ul>
 <li>R = M 且将执行 L = M + 1：<br>  由 R = M 可知 L = R ，故 L = R = M：<br>  由执行 L = M + 1 可知判断条件为 M &lt; T，故只能为 T = M + 1 如下图3：</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_6.png" alt="二分查找_6.png"><center>图3</center></p>
-<p>而上述三种情况经过简单计算即可得出结论，必得出图1中下端<strong>红色框</strong>中显示，放大见下图4：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_4.png" alt="二分查找_4.png"><center>图4</center></p>
-<p>故最终必有 L = T。<br>故此，对于改进的程序返回顺序插入位置，只需在任意查找失败的情况，即循环终止时返回 left 即可。<br>即最终仅需将 <code>return -1</code> 修改为 <code>return left</code></p>
-<p>二分查找的优化版代码如下：</p>
-<pre><code class="lang-java">public int binarySearch(int[] nums, int target) {
+<img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE_6.png" alt="二分查找_6.png"><center>图3</center>
+而上述三种情况经过简单计算即可得出结论，必得出图1中下端<strong>红色框</strong>中显示，放大见下图4：
+<img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE_4.png" alt="二分查找_4.png"><center>图4</center>
+故最终必有 L = T。<br>故此，对于改进的程序返回顺序插入位置，只需在任意查找失败的情况，即循环终止时返回 left 即可。<br>即最终仅需将 <code>return -1</code> 修改为 <code>return left</code>
+二分查找的优化版代码如下：
+<pre><code class="java">public int binarySearch(int[] nums, int target) {
     int left = 0, right = nums.length - 1;
     while (left &lt;= right) {
         int mid = (left + right) &gt;&gt;&gt; 1; // 防溢出
@@ -190,21 +187,20 @@
             right = mid - 1;
     }
     return left; // 返回顺序插入位置
-}
-</code></pre>
-<h2 id="完善"><a href="#完善" class="headerlink" title="完善"></a>完善</h2><p>上述改良提升了算法的实用性，但可扩展性不强，适用范围不广。<br>因为如需返回序列中不大于目标值的最大（最后一个）索引，则应修改为 <code>return  right</code>，<br>然而对于每一次需求，对于具体返回 left 还是 right ，都需进行上述繁琐的分析，扩展性不强。<br>故此以下提出更为明晰的方法。<br>（<em>下述提及  T ∈ 或 ∉ [L, R] 时，不考虑目标值插入位置不属于目标序列时的情况</em>）</p>
-<h3 id="循环终止条件变为-L-R"><a href="#循环终止条件变为-L-R" class="headerlink" title="循环终止条件变为 L == R"></a>循环终止条件变为 L == R</h3><p>之所以需要判断最终返回 left 还是 right，是因为最终循环终止的条件是 L &gt; R，<br>更准确的说此时 L = R + 1，形似 …, <strong>R], [L</strong>, …，<br>此时 L 与 R 反向越界，区间不复存在，故最终需要判断具体返回 left 还是 right。</p>
-<p>而通过修改循环条件 <code>left &lt;= right</code> 为 <code>left &lt; right</code>，即可将循环终止条件变为 L &gt;= R，<br>试图当 L = R 时退出循环，形似 …, <strong>[L R]</strong>, …，<br>如果成功，此时由于 L = R 二者重合，则无需区分判断。</p>
-<p>但由之前的优化分析可知：<br>当 M = T = L + 1，R = L + 1 或 L + 2 时，进一步迭代会出现 T ∉ [L, R]（见图1<strong>蓝色框</strong>）<br>而由于修改了循环终止条件，此时又有 L = R 循环终止，故而无法得出正确答案。<br>故除了上述修改循环终止条件外，还需修改迭代过程，让目标值不超出范围。</p>
-<h3 id="修改循环迭代过程"><a href="#修改循环迭代过程" class="headerlink" title="修改循环迭代过程"></a>修改循环迭代过程</h3><p>由图1<strong>蓝色框</strong>可以看出，造成目标值超出范围的核心在于：<br>取中间值时是<strong>向下取整</strong>：<code>M = (L + M) &gt;&gt;&gt; 1</code>，当 L &lt; R 时必有 M ∈ <strong>[L, R)</strong><br>则当 nums[M] &lt; nums[T] 时，L = M + 1 ，必不会使目标值超出范围，<br>而当 nums[M] &gt; nums[T] 时，R = M - 1，则有可能使得目标值超出范围</p>
-<p>故而为使得目标值恒不超出范围，合并 nums[M] &gt; nums[T] 和 nums[M] = nums[T] 的情况：<br>即当 nums[M] &gt;= nums[T] 时，R = M</p>
-<p>故之前的子区间划分 M 为单独项，即分为：[L, M - 1]，[M]，[M + 1, R]，<br>每次查找失败则将查找区间 [L, R] 缩小一半至 [L, M - 1] 或 [M + 1, R]，<br>而新的子区间划分不再单独划分 M，分为：[L, M] 和 [M + 1, R]，<br>每次查找失败则将查找区间 [L, R] 缩小一半至 [L, M] 或 [M + 1, R]，区别如下图5：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_12.jpg" alt="二分查找_12.jpg"><center>图5</center></p>
-<p>通过上述修改循环迭代过程，可以确保当序列中存在大于目标值的元素时，<br>在迭代的任何阶段，都有 T ∈ [L, R]，<br>又由之前修改的循环终止条件，保证了最终循环结束时有 L = R，形似 …, <strong>[L R]</strong>, …，即最终有 T = L = R。</p>
-<h3 id="判断目标值插入位置是否在目标序列内"><a href="#判断目标值插入位置是否在目标序列内" class="headerlink" title="判断目标值插入位置是否在目标序列内"></a>判断目标值插入位置是否在目标序列内</h3><p>以上基本完善了二分查找，不过对提及  T ∈ 或 ∉ [L, R] 时，未考虑目标值插入位置不属于目标序列时的情况，<br>而实则在迭代的任何阶段，都有 T ∈ [L, R] <strong>⊆ [0, length - 1]</strong>，但完整的值域应为 <strong>[0, length]</strong>，<br>即没有考虑，当序列中不存在大于目标值的元素时，需返回序列长度（末端元素索引 +1）。</p>
-<p>故此，需要单独判断当序列中不存在大于目标值的元素时，应返回序列长度。<br>（<em>也可通过判断最终的 nums[left] 和 target 的大小关系确定是否为该特例</em>）</p>
-<p>故最终二分查找完善版的代码如下：</p>
-<pre><code class="lang-java">public int searchInsert(int[] nums, int target) {
+}</code></pre>
+<h2 id="完善"><a href="#完善" class="headerlink" title="完善"></a>完善</h2>上述改良提升了算法的实用性，但可扩展性不强，适用范围不广。<br>因为如需返回序列中不大于目标值的最大（最后一个）索引，则应修改为 <code>return  right</code>，<br>然而对于每一次需求，对于具体返回 left 还是 right ，都需进行上述繁琐的分析，扩展性不强。<br>故此以下提出更为明晰的方法。<br>（<em>下述提及  T ∈ 或 ∉ [L, R] 时，不考虑目标值插入位置不属于目标序列时的情况</em>）
+<h3 id="循环终止条件变为-L-R"><a href="#循环终止条件变为-L-R" class="headerlink" title="循环终止条件变为 L == R"></a>循环终止条件变为 L == R</h3>之所以需要判断最终返回 left 还是 right，是因为最终循环终止的条件是 L &gt; R，<br>更准确的说此时 L = R + 1，形似 …, <strong>R], [L</strong>, …，<br>此时 L 与 R 反向越界，区间不复存在，故最终需要判断具体返回 left 还是 right。
+而通过修改循环条件 <code>left &lt;= right</code> 为 <code>left &lt; right</code>，即可将循环终止条件变为 L &gt;= R，<br>试图当 L = R 时退出循环，形似 …, <strong>[L R]</strong>, …，<br>如果成功，此时由于 L = R 二者重合，则无需区分判断。
+但由之前的优化分析可知：<br>当 M = T = L + 1，R = L + 1 或 L + 2 时，进一步迭代会出现 T ∉ [L, R]（见图1<strong>蓝色框</strong>）<br>而由于修改了循环终止条件，此时又有 L = R 循环终止，故而无法得出正确答案。<br>故除了上述修改循环终止条件外，还需修改迭代过程，让目标值不超出范围。
+<h3 id="修改循环迭代过程"><a href="#修改循环迭代过程" class="headerlink" title="修改循环迭代过程"></a>修改循环迭代过程</h3>由图1<strong>蓝色框</strong>可以看出，造成目标值超出范围的核心在于：<br>取中间值时是<strong>向下取整</strong>：<code>M = (L + M) &gt;&gt;&gt; 1</code>，当 L &lt; R 时必有 M ∈ <strong>[L, R)</strong><br>则当 nums[M] &lt; nums[T] 时，L = M + 1 ，必不会使目标值超出范围，<br>而当 nums[M] &gt; nums[T] 时，R = M - 1，则有可能使得目标值超出范围
+故而为使得目标值恒不超出范围，合并 nums[M] &gt; nums[T] 和 nums[M] = nums[T] 的情况：<br>即当 nums[M] &gt;= nums[T] 时，R = M
+故之前的子区间划分 M 为单独项，即分为：[L, M - 1]，[M]，[M + 1, R]，<br>每次查找失败则将查找区间 [L, R] 缩小一半至 [L, M - 1] 或 [M + 1, R]，<br>而新的子区间划分不再单独划分 M，分为：[L, M] 和 [M + 1, R]，<br>每次查找失败则将查找区间 [L, R] 缩小一半至 [L, M] 或 [M + 1, R]，区别如下图5：
+<img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE_12.jpg" alt="二分查找_12.jpg"><center>图5</center>
+通过上述修改循环迭代过程，可以确保当序列中存在大于目标值的元素时，<br>在迭代的任何阶段，都有 T ∈ [L, R]，<br>又由之前修改的循环终止条件，保证了最终循环结束时有 L = R，形似 …, <strong>[L R]</strong>, …，即最终有 T = L = R。
+<h3 id="判断目标值插入位置是否在目标序列内"><a href="#判断目标值插入位置是否在目标序列内" class="headerlink" title="判断目标值插入位置是否在目标序列内"></a>判断目标值插入位置是否在目标序列内</h3>以上基本完善了二分查找，不过对提及  T ∈ 或 ∉ [L, R] 时，未考虑目标值插入位置不属于目标序列时的情况，<br>而实则在迭代的任何阶段，都有 T ∈ [L, R] <strong>⊆ [0, length - 1]</strong>，但完整的值域应为 <strong>[0, length]</strong>，<br>即没有考虑，当序列中不存在大于目标值的元素时，需返回序列长度（末端元素索引 +1）。
+故此，需要单独判断当序列中不存在大于目标值的元素时，应返回序列长度。<br>（<em>也可通过判断最终的 nums[left] 和 target 的大小关系确定是否为该特例</em>）
+故最终二分查找完善版的代码如下：
+<pre><code class="java">public int searchInsert(int[] nums, int target) {
     // 序列中不存在大于目标值的元素，返回序列长度
     if (nums[nums.length - 1] &lt; target)
         return nums.length;
@@ -219,17 +215,17 @@
             right = mid;
     }
     return left;
-}
-</code></pre>
-<p>该完善版的核心之处在于：</p>
+}</code></pre>
+该完善版的核心之处在于：
 <ul>
 <li>L &lt; R</li>
 <li>取整方式与恰当匹配的迭代过程（子区间划分方式）</li>
 </ul>
-<p>确保了 L = R 循环终止，且迭代任何阶段必有 T ∈ [L, R] ，且区间长度终将逼近至 1，<br>即最终有 T = L = R。</p>
-<h3 id="完整版二分查找算法分析过程"><a href="#完整版二分查找算法分析过程" class="headerlink" title="完整版二分查找算法分析过程"></a>完整版二分查找算法分析过程</h3><p>故此完整版的二分查找算法分析过程如下：</p>
+确保了 L = R 循环终止，且迭代任何阶段必有 T ∈ [L, R] ，且区间长度终将逼近至 1，<br>即最终有 T = L = R。
+<h3 id="完整版二分查找算法分析过程"><a href="#完整版二分查找算法分析过程" class="headerlink" title="完整版二分查找算法分析过程"></a>完整版二分查找算法分析过程</h3>故此完整版的二分查找算法分析过程如下：
 <blockquote>
-<p>完整版二分查找算法分析过程：</p>
+完整版二分查找算法分析过程：
+</blockquote>
 <ol>
 <li>while(L &lt; R)</li>
 <li>确定初始 L R</li>
@@ -250,8 +246,7 @@
 </ul>
 </li>
 </ol>
-</blockquote>
-<p>注：</p>
+注：
 <ol>
 <li>循环迭代过程的确定原则为3，4，分析见补充</li>
 <li>前处理和后处理，分析见补充，暂以完善版为例：<ul>
@@ -260,37 +255,25 @@
 </ul>
 </li>
 </ol>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="循环迭代过程的确定原则"><a href="#循环迭代过程的确定原则" class="headerlink" title="循环迭代过程的确定原则"></a>循环迭代过程的确定原则</h3><p>上述完善时对修改循环迭代过程的分析不够全面透彻，以下做更为具体的分析，并提出循环迭代过程的确定原则。</p>
-<p>4种划分子区间的方式如下图6：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_13.jpg" alt="二分查找_13.jpg"><center>图6</center></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="循环迭代过程的确定原则"><a href="#循环迭代过程的确定原则" class="headerlink" title="循环迭代过程的确定原则"></a>循环迭代过程的确定原则</h3>上述完善时对修改循环迭代过程的分析不够全面透彻，以下做更为具体的分析，并提出循环迭代过程的确定原则。
+4种划分子区间的方式如下图6：
+<img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE_13.jpg" alt="二分查找_13.jpg"><center>图6</center>
 <ol>
 <li>传统版（×），划分 M 为单独项，每次将区间逼近至：[L, M -1 ]，[M] 或 [M + 1, R]</li>
 <li>完善版（√），划分 M 至左子列，每次将区间逼近至：[L, M] 或 [M + 1, R]</li>
 <li>完善版对称式（√），划分 M 至右子列，每次将区间逼近至：[L, M - 1] 或 [M, R]</li>
 <li>错误版（×），重复划分 M 至两子列，每次将区间逼近至：[L, M] 或 [M, R]</li>
 </ol>
-<p>先说明1，4为何不好甚至错误：<br>1 是传统版的迭代方式，该方式的不好之处在于迭代过程中会出现 T ∉ [L, R]，若循环终止条件为 L = R，则可能直接出错（前问已有分析），而若循环终止条件为 L = R + 1，也会陷入繁琐的分析具体返回 left 还是 right。<br>4 则是完全错误的版本，此方法可以确保在迭代的任何阶段，都有 T ∈ [L, R]，但错误在于不能确保区间长度能逼近至 1，如在迭代的最后阶段，区间长度为 2 时，存在 —— 当 R = L + 1 时，恒有 M ≡ L，若此时 nums[M] &lt; nums[T] 如下图7，则恒有 L = M，迭代陷入死循环，无法停止。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_9.jpg" alt="二分查找_9.jpg"><center>图7</center></p>
-<p>再分析2，3 两种方式为何为正确的划分子区间的方式：<br>两种方式划分的子区间，既无元素重复，也无元素丢失，可以确保在迭代的任何阶段都有 T ∈ [L, R] ，而再搭配正确的取整方式，即可使区间长度终将逼近至 1，使得最终有 T = L = R。<br>取整方式分析如下：</p>
+先说明1，4为何不好甚至错误：<br>1 是传统版的迭代方式，该方式的不好之处在于迭代过程中会出现 T ∉ [L, R]，若循环终止条件为 L = R，则可能直接出错（前问已有分析），而若循环终止条件为 L = R + 1，也会陷入繁琐的分析具体返回 left 还是 right。<br>4 则是完全错误的版本，此方法可以确保在迭代的任何阶段，都有 T ∈ [L, R]，但错误在于不能确保区间长度能逼近至 1，如在迭代的最后阶段，区间长度为 2 时，存在 —— 当 R = L + 1 时，恒有 M ≡ L，若此时 nums[M] &lt; nums[T] 如下图7，则恒有 L = M，迭代陷入死循环，无法停止。
+<img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE_9.jpg" alt="二分查找_9.jpg"><center>图7</center>
+再分析2，3 两种方式为何为正确的划分子区间的方式：<br>两种方式划分的子区间，既无元素重复，也无元素丢失，可以确保在迭代的任何阶段都有 T ∈ [L, R] ，而再搭配正确的取整方式，即可使区间长度终将逼近至 1，使得最终有 T = L = R。<br>取整方式分析如下：
 <ul>
 <li>2：将 M 划分至左子列，按 [L, M] 和 [M + 1, R] 划分子区间，即：<br>  当 nums[M] &gt;= nums[T] 时，R = M，<br>  当 nums[M] &lt; nums[T] 时，L = M + 1 ，<br>  故应使 M ∈ [L, R<strong>)</strong>，才可以恰好取到两端值（R = M(= L) 或 L = M + 1(= R)）<br>  故取中间值时是应<strong>向下取整</strong>：<code>M = (L + M) &gt;&gt;&gt; 1</code></li>
 <li>3：将 M 划分至右子列，按 [L, M - 1] 和 [M, R] 划分子区间，即：<br>  当 nums[M] &lt;= nums[T] 时，L = M，<br>  当 nums[M] &gt; nums[T] 时，R = M - 1 ，<br>  故应使 M ∈ <strong>(</strong>L, R]，才可以恰好取到两端值（L = M = R 或 R = M - 1 = L）<br>  故取中间值时是应<strong>向上取整</strong>：<code>M = (L + M + 1) &gt;&gt;&gt; 1</code></li>
 </ul>
-<p>故有了循环迭代过程的确定原则（即<a href="#完整版二分查找算法分析过程">完整版二分查找算法分析过程 3，4</a>）：</p>
-<ol>
-<li>确定迭代方式，根据业务逻辑：<ul>
-<li>分析何种情况必符合（含等于），何种情况必<strong>不</strong>符合（不含等于）</li>
-<li>即分析 M 应划分至左子列还是右子列</li>
-</ul>
-</li>
-<li>确定 M 取整方式，根据迭代方式（子区间划分方式）（分析见上）：<ul>
-<li>M 划分至左子列，子区间为 [L, M] 和 [M + 1, R]：向下取整 —— <code>M = (L + M) &gt;&gt;&gt; 1</code></li>
-<li>M 划分至右子列，子区间为 [L, M - 1] 和 [M, R]：向上取整 —— <code>M = (L + M + 1) &gt;&gt;&gt; 1</code></li>
-</ul>
-</li>
-</ol>
-<p><strong>例：</strong><br><a href="https://leetcode-cn.com/problems/sqrtx" target="_blank" rel="noopener">LeetCode 69. x 的平方根</a>：<br>实现 int sqrt(int x) 函数。<br>计算并返回 x 的平方根，其中 x 是非负整数。<br>由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。</p>
-<p>分析：</p>
+故有了循环迭代过程的确定原则（即<a href="#完整版二分查找算法分析过程">完整版二分查找算法分析过程 3，4</a>）：<br>3. 确定迭代方式，根据业务逻辑：<br>    - 分析何种情况必符合（含等于），何种情况必<strong>不</strong>符合（不含等于）<br>    - 即分析 M 应划分至左子列还是右子列<br>4. 确定 M 取整方式，根据迭代方式（子区间划分方式）（分析见上）：<br>    - M 划分至左子列，子区间为 [L, M] 和 [M + 1, R]：向下取整 —— <code>M = (L + M) &gt;&gt;&gt; 1</code><br>    - M 划分至右子列，子区间为 [L, M - 1] 和 [M, R]：向上取整 —— <code>M = (L + M + 1) &gt;&gt;&gt; 1</code>
+<strong>例：</strong><br><a href="https://leetcode-cn.com/problems/sqrtx" target="_blank" rel="noopener">LeetCode 69. x 的平方根</a>：<br>实现 int sqrt(int x) 函数。<br>计算并返回 x 的平方根，其中 x 是非负整数。<br>由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
+分析：
 <ol>
 <li>while(L &lt; R)</li>
 <li>非负整数的平方根，最小可能是 0，最大可能是它自己：L = 0，R = x</li>
@@ -298,8 +281,8 @@
 <li><strong>M 划分至右子列：向上取整 —— <code>M = (L + M + 1) &gt;&gt;&gt; 1</code></strong></li>
 <li>无特例</li>
 </ol>
-<p>代码：</p>
-<pre><code class="lang-java">public int mySqrt(int x) {
+代码：
+<pre><code class="java">public int mySqrt(int x) {
     long min = 0, max = x;
     while (min &lt; max) {
         long mid = (min + max + 1) &gt;&gt;&gt; 1;
@@ -309,9 +292,8 @@
             max = mid - 1;
     }
     return (int) min;
-}
-</code></pre>
-<h3 id="目标值不确定在目标序列内"><a href="#目标值不确定在目标序列内" class="headerlink" title="目标值不确定在目标序列内"></a>目标值不确定在目标序列内</h3><h3 id="中位数加-“-”-技巧"><a href="#中位数加-“-”-技巧" class="headerlink" title="中位数加 “#” 技巧"></a>中位数加 “#” 技巧</h3><p>二分查找常和中位数一起使用  </p>
+}</code></pre>
+<h3 id="目标值不确定在目标序列内"><a href="#目标值不确定在目标序列内" class="headerlink" title="目标值不确定在目标序列内"></a>目标值不确定在目标序列内</h3><h3 id="中位数加-“-”-技巧"><a href="#中位数加-“-”-技巧" class="headerlink" title="中位数加 “#” 技巧"></a>中位数加 “#” 技巧</h3>二分查找常和中位数一起使用  
 
     </div>
 

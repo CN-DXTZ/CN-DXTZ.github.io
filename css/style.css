@@ -271,47 +271,48 @@ main>.posts {
 .posts .post .post-content hr {
   border: 1px solid #66bb6a;
 }
-.posts .post .post-content ul>li {
-  list-style-type: none;
-  position: relative;
-  right: 1vw;
+.posts .post .post-content ul {
+  padding-inline-start: 1.4vw;
 }
-.posts .post .post-content ul>li::before {
+.posts .post .post-content ul >li {
+  list-style-type: none;
+  text-indent: -0.7vw;
+}
+.posts .post .post-content ul >li::before {
   content: "\e75b";
   font-family: "iconfont" !important;
   color: #4caf50;
   font-weight: bold;
-  font-size: 1.2vw;
+  display: inline-block;
   position: relative;
-  right: 0.5vw;
+  right: 0.1vw;
 }
-.posts .post .post-content ul>li >ul>li::before {
+.posts .post .post-content ul >li >ul>li::before {
   content: "\e7c2";
 }
-.posts .post .post-content ul>li >ul>li >ul>li::before {
+.posts .post .post-content ul >li >ul>li >ul>li::before {
   content: "\e63e";
 }
-.posts .post .post-content ul>li >ul>li >ul>li >ul>li::before {
+.posts .post .post-content ul >li >ul>li >ul>li >ul>li::before {
   content: "\e63c";
 }
-.posts .post .post-content ul>li:hover::before {
+.posts .post .post-content ul >li:hover::before {
   color: #ff9800;
 }
 .posts .post .post-content ol {
   counter-reset: OL1;
+  padding-inline-start: 1.4vw;
 }
 .posts .post .post-content ol >li {
   list-style-type: none;
-  position: relative;
-  right: 1vw;
+  text-indent: -1.4vw;
   counter-increment: OL1;
 }
 .posts .post .post-content ol >li::before {
   content: counter(OL1) ". ";
   color: #4caf50;
   font-weight: bold;
-  position: relative;
-  right: 0.5vw;
+  font-size: 1.5vw;
 }
 .posts .post .post-content ol >li >ol {
   counter-reset: OL2;
@@ -419,7 +420,7 @@ main>.posts {
   border-color: #ffa726;
 }
 .archive-main-container {
-  margin: 25vh 11vw;
+  margin: 12vw 11vw;
   padding: 2vw 6vw 6vw 6vw;
   background: #c7edcc;
   border-top: 0.75vh solid #4caf50;
@@ -466,7 +467,7 @@ main>.posts {
   transition: 0.5s;
 }
 .categories-main-container {
-  margin: 25vh 11vw;
+  margin: 12vw 11vw;
   padding: 5vw 4vw;
   background: #c7edcc;
   border-top: 0.75vh solid #4caf50;
@@ -496,7 +497,7 @@ main>.posts {
   color: #f57c00;
 }
 .categories-main-container .category-deep-1 .category-item .name {
-  padding-left: 2.5vw;
+  padding-left: 1.7vw;
 }
 .categories-main-container .category-deep-1 .category-item .name::before {
   content: "\e75b";
@@ -505,28 +506,28 @@ main>.posts {
   font-weight: bold;
   font-size: 1.7vw;
   position: relative;
-  right: 1vw;
+  right: 0.5vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-item .name {
-  padding-left: 5vw;
+  padding-left: 3.4vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-item .name::before {
   content: "\e7c2";
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-item .name {
-  padding-left: 7.5vw;
+  padding-left: 5.1vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-item .name::before {
   content: "\e63e";
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-deep-4 .category-item .name {
-  padding-left: 10vw;
+  padding-left: 6.8vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-deep-4 .category-item .name::before {
   content: "\e63c";
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-deep-4 .category-deep-5 .category-item .name {
-  padding-left: 12.5vw;
+  padding-left: 8.5vw;
 }
 .categories-main-container .category-deep-1 .category-deep-2 .category-deep-3 .category-deep-4 .category-deep-5 .category-item .name::before {
   font-weight: normal;
@@ -562,7 +563,7 @@ main>.posts {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 25vh 11vw;
+  margin: 12vw 11vw;
   padding: 6vw;
   background: #c7edcc;
   border-top: 0.75vh solid #4caf50;

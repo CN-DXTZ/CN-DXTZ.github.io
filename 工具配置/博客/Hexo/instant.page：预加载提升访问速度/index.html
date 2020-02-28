@@ -10,7 +10,7 @@
 	
 <link rel="stylesheet" href="/css/style.css">
 
-	<link href="//at.alicdn.com/t/font_1660778_oyr72dgmupo.css" rel="stylesheet">
+	<link href="//at.alicdn.com/t/font_1660778_llo3tsvtukh.css" rel="stylesheet">
 	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/prism.css" rel="stylesheet">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -115,18 +115,16 @@
 </div>
 
     <div class="post-content">
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><a href="https://instant.page/" target="_blank" rel="noopener">instant.page</a> 是一款开源的JS脚本，核心是即时预加载技术，通过检测鼠标在一个连接上的悬停时间，超过一定阈值即<strong>可能</strong>进一步访问，故在点击前对此页面进行预加载，而当用户<strong>实际</strong>点击该链接后，就从预加载的缓存中直接读取页面内容，在感观上提升了访问速度，但其实在打开页面前已经加载到本地了，故可以加快渲染。</p>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><a href="https://instant.page/" target="_blank" rel="noopener">instant.page</a> 是一款开源的JS脚本，核心是即时预加载技术，通过检测鼠标在一个连接上的悬停时间，超过一定阈值即<strong>可能</strong>进一步访问，故在点击前对此页面进行预加载，而当用户<strong>实际</strong>点击该链接后，就从预加载的缓存中直接读取页面内容，在感观上提升了访问速度，但其实在打开页面前已经加载到本地了，故可以加快渲染。
 <a id="more"></a>
-<p>其效果如下图：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/instant_page_1.gif" alt="instant_page_1.gif"><br>从红框中可以看到，在未点击目标链接前，只要悬停在目标链接上，对应链接的网页就已经预加载到本地了。</p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="官方外链"><a href="#官方外链" class="headerlink" title="官方外链"></a>官方外链</h3><p>使用起来十分简单，将官网的插入脚本的代码添加至 <code>themes\主题名\layout\layout.ejs</code> 文件的 <code>&lt;/body&gt;</code> 标签之前即可：</p>
-<pre><code class="lang-html">&lt;script src=&quot;//instant.page/3.0.0&quot; type=&quot;module&quot; defer 
-integrity=&quot;sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1&quot;&gt;&lt;/script&gt;
-</code></pre>
-<h3 id="本地链"><a href="#本地链" class="headerlink" title="本地链"></a>本地链</h3><p>为避免由于国内的某些原因，直接访问该存储在国外服务器上的官方脚本过于缓慢，亦可通过保存至本地进行加载，下载地址见【官网<a href="https://instant.page/tech" target="_blank" rel="noopener">Technical details</a>】的【<a href="https://instant.page/3.0.0" target="_blank" rel="noopener">Download the latest version</a>（本文版本下载链接，右键另存为即可）】进行下载</p>
-<p>本文保存至： <code>themes\主题名\source\js\instantpage-3.0.0.js</code>，然后通过类似官方外链的方法插入该脚本（将下列代码添加至 <code>themes\主题名\layout\layout.ejs</code> 文件的 <code>&lt;/body&gt;</code> 标签之前）:</p>
-<pre><code class="lang-html">&lt;script src=&quot;/js/instantpage-3.0.0.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p>如下图：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/instant_page_2.jpg" alt="instant_page_2.jpg"></p>
+其效果如下图：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/instant_page_1.gif" alt="instant_page_1.gif"><br>从红框中可以看到，在未点击目标链接前，只要悬停在目标链接上，对应链接的网页就已经预加载到本地了。
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="官方外链"><a href="#官方外链" class="headerlink" title="官方外链"></a>官方外链</h3>使用起来十分简单，将官网的插入脚本的代码添加至 <code>themes\主题名\layout\layout.ejs</code> 文件的 <code>&lt;/body&gt;</code> 标签之前即可：
+<pre><code class="html">&lt;script src=&quot;//instant.page/3.0.0&quot; type=&quot;module&quot; defer 
+integrity=&quot;sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1&quot;&gt;&lt;/script&gt;</code></pre>
+<h3 id="本地链"><a href="#本地链" class="headerlink" title="本地链"></a>本地链</h3>为避免由于国内的某些原因，直接访问该存储在国外服务器上的官方脚本过于缓慢，亦可通过保存至本地进行加载，下载地址见【官网<a href="https://instant.page/tech" target="_blank" rel="noopener">Technical details</a>】的【<a href="https://instant.page/3.0.0" target="_blank" rel="noopener">Download the latest version</a>（本文版本下载链接，右键另存为即可）】进行下载
+本文保存至： <code>themes\主题名\source\js\instantpage-3.0.0.js</code>，然后通过类似官方外链的方法插入该脚本（将下列代码添加至 <code>themes\主题名\layout\layout.ejs</code> 文件的 <code>&lt;/body&gt;</code> 标签之前）:
+<pre><code class="html">&lt;script src=&quot;/js/instantpage-3.0.0.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;</code></pre>
+如下图：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/instant_page_2.jpg" alt="instant_page_2.jpg">
 
     </div>
 

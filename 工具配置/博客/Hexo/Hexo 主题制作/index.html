@@ -10,7 +10,7 @@
 	
 <link rel="stylesheet" href="/css/style.css">
 
-	<link href="//at.alicdn.com/t/font_1660778_oyr72dgmupo.css" rel="stylesheet">
+	<link href="//at.alicdn.com/t/font_1660778_llo3tsvtukh.css" rel="stylesheet">
 	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/prism.css" rel="stylesheet">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -109,59 +109,57 @@
         <div class="post-categories">
             <i class="iconfont icon-folderopen"></i>
             
-            <a href="/categories/工具配置/"> 工具配置</a> / <a href="/categories/工具配置/博客/"> 博客</a> / <a href="/categories/工具配置/博客/Hexo/"> Hexo</a> / <a href="/categories/工具配置/博客/Hexo/theme/"> theme</a> / <a href="/categories/工具配置/博客/Hexo/theme/creative/"> creative</a> / <a href="/categories/工具配置/博客/Hexo/theme/creative/主题制作/"> 主题制作</a>
+            <a href="/categories/工具配置/"> 工具配置</a> / <a href="/categories/工具配置/博客/"> 博客</a> / <a href="/categories/工具配置/博客/Hexo/"> Hexo</a> / <a href="/categories/工具配置/博客/Hexo/test1/"> test1</a> / <a href="/categories/工具配置/博客/Hexo/test1/test2/"> test2</a> / <a href="/categories/工具配置/博客/Hexo/test1/test2/test3/"> test3</a>
         </div>
     </div>
 </div>
 
     <div class="post-content">
-        <p>1<br><a id="more"></a></p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>阅读官方<a href="https://hexo.io/zh-cn/docs/templates.html" target="_blank" rel="noopener">主题</a>文档：</p>
-<p>布局模板决定了页面的结构，而通过回调，每个主题都包含了 index 模板，以下是各页面相对应的模板：</p>
-<div class="table-container">
+        1
+<a id="more"></a>
+
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2>阅读官方<a href="https://hexo.io/zh-cn/docs/templates.html" target="_blank" rel="noopener">主题</a>文档：
+布局模板决定了页面的结构，而通过回调，每个主题都包含了 index 模板，以下是各页面相对应的模板：
 <table>
 <thead>
 <tr>
-<th style="text-align:center">模板</th>
-<th style="text-align:center">页面</th>
-<th style="text-align:center">回调</th>
+<th align="center">模板</th>
+<th align="center">页面</th>
+<th align="center">回调</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">index</td>
-<td style="text-align:center">首页</td>
-<td style="text-align:center"></td>
+<tbody><tr>
+<td align="center">index</td>
+<td align="center">首页</td>
+<td align="center"></td>
 </tr>
 <tr>
-<td style="text-align:center">post</td>
-<td style="text-align:center">文章</td>
-<td style="text-align:center">index</td>
+<td align="center">post</td>
+<td align="center">文章</td>
+<td align="center">index</td>
 </tr>
 <tr>
-<td style="text-align:center">page</td>
-<td style="text-align:center">分页</td>
-<td style="text-align:center">index</td>
+<td align="center">page</td>
+<td align="center">分页</td>
+<td align="center">index</td>
 </tr>
 <tr>
-<td style="text-align:center">archive</td>
-<td style="text-align:center">归档</td>
-<td style="text-align:center">index</td>
+<td align="center">archive</td>
+<td align="center">归档</td>
+<td align="center">index</td>
 </tr>
 <tr>
-<td style="text-align:center">category</td>
-<td style="text-align:center">分类归档</td>
-<td style="text-align:center">archive</td>
+<td align="center">category</td>
+<td align="center">分类归档</td>
+<td align="center">archive</td>
 </tr>
 <tr>
-<td style="text-align:center">tag</td>
-<td style="text-align:center">标签归档</td>
-<td style="text-align:center">archive</td>
+<td align="center">tag</td>
+<td align="center">标签归档</td>
+<td align="center">archive</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>Hexo 的生成原理也很简单，主要由 generator 和 renderer 构成：</p>
+</tbody></table>
+Hexo 的生成原理也很简单，主要由 generator 和 renderer 构成：
 <ul>
 <li>generator 通过上述布局模板生成页面及控制目录结构：</li>
 <li>renderer 负责渲染页面，（本文主要负责修改的部分，选择默认技术栈）：<ul>
@@ -170,22 +168,20 @@
 </ul>
 </li>
 </ul>
-<p>以下正式进行主题的制作</p>
-<h2 id="主题文件初始化"><a href="#主题文件初始化" class="headerlink" title="主题文件初始化"></a>主题文件初始化</h2><p>首先初始化主题文件，以下通过 yo 和 generator-hexo-theme 自动生成（亦可以手动新建各文件）：<br>先安装包，在命令行输入并执行：</p>
+以下正式进行主题的制作
+<h2 id="主题文件初始化"><a href="#主题文件初始化" class="headerlink" title="主题文件初始化"></a>主题文件初始化</h2>首先初始化主题文件，以下通过 yo 和 generator-hexo-theme 自动生成（亦可以手动新建各文件）：<br>先安装包，在命令行输入并执行：
 <pre><code>npm install yo -g
-npm install generator-hexo-theme -g
-</code></pre><p>然后在命令行进入待创建主题的文件夹，输入并执行下列命令：</p>
-<pre><code>yo hexo-theme
-</code></pre><p>并进行可选项选择，包括：主题名，技术栈，其他等，效果如下:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/HexoTheme_1.jpg" alt="HexoTheme_1.jpg"></p>
-<p>执行完毕后即主题文件初始化基本完成，再稍作修改：</p>
+npm install generator-hexo-theme -g</code></pre>然后在命令行进入待创建主题的文件夹，输入并执行下列命令：
+<pre><code>yo hexo-theme</code></pre>并进行可选项选择，包括：主题名，技术栈，其他等，效果如下:
+<img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/HexoTheme_1.jpg" alt="HexoTheme_1.jpg">
+执行完毕后即主题文件初始化基本完成，再稍作修改：
 <ul>
 <li>新建文件夹：/languages/ </li>
 <li>修改文件夹名：/layout/partial/ 改为 /layout/_partial/ </li>
 <li>新建文件夹： /source/fonts/ </li>
 <li>新建文件夹： /source/images/ 并将 favicon.ico 移入</li>
 </ul>
-<p>最终目录结构及对应的意义如下：</p>
+最终目录结构及对应的意义如下：
 <pre><code>├── languages ### 语言支持
 ├── layout ### 布局模块文件夹 
 │   ├── _partial ### 可重复利用的局部布局模块文件夹 
@@ -204,8 +200,7 @@ npm install generator-hexo-theme -g
 │   │   └──  favicon.ico ### 网站图标 
 │   └── js ## js 文件夹 
 │       └── 主题名.js ### js 脚本 
-└── _config.yml ### 主题的配置文件
-</code></pre>
+└── _config.yml ### 主题的配置文件 </code></pre>
     </div>
 
     <!-------------------- 上下篇 -------------------->

@@ -10,7 +10,7 @@
 	
 <link rel="stylesheet" href="/css/style.css">
 
-	<link href="//at.alicdn.com/t/font_1660778_oyr72dgmupo.css" rel="stylesheet">
+	<link href="//at.alicdn.com/t/font_1660778_llo3tsvtukh.css" rel="stylesheet">
 	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/prism.css" rel="stylesheet">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -115,12 +115,13 @@
 </div>
 
     <div class="post-content">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>若不会 Github 图床配置，参见上一篇<a href="https://cn-dxtz.github.io/工具配置/博客/图床/Github%20图床%20+%20jsDelivr%20CDN%20图床加速/" target="_blank" rel="noopener">《Github 图床 + jsDelivr CDN 图床加速》</a><br>本文选取插件 PicGo 实现一键上传图片至图床，并生成 MarkDown 语法的图片链接。<br>PicGo 有很多平台的版本，大同小异，由于本人使用 VScode 进行博客撰写，故选取的是 VScode 插件版。<br>其他版本如 Windows 版亦可作参考。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2>若不会 Github 图床配置，参见上一篇<a href="https://cn-dxtz.github.io/工具配置/博客/图床/Github%20图床%20+%20jsDelivr%20CDN%20图床加速/" target="_blank" rel="noopener">《Github 图床 + jsDelivr CDN 图床加速》</a><br>本文选取插件 PicGo 实现一键上传图片至图床，并生成 MarkDown 语法的图片链接。<br>PicGo 有很多平台的版本，大同小异，由于本人使用 VScode 进行博客撰写，故选取的是 VScode 插件版。<br>其他版本如 Windows 版亦可作参考。
 <a id="more"></a>
-<h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p><a href="https://cn-dxtz.github.io/工具配置/博客/图床/Github%20图床%20+%20jsDelivr%20CDN%20图床加速/" target="_blank" rel="noopener">前文</a>已经新建了 GitHub 的图床仓库，但该创建的仓库暂时只能本人直接通过网页上传图片，使用不便，于是通过新建一个私人认证，允许其他合规的程序通过认证直接访问仓库，更为便捷，具体步骤如下：</p>
-<h3 id="新建私人认证"><a href="#新建私人认证" class="headerlink" title="新建私人认证"></a>新建私人认证</h3><p>在主页依次【点击个人头像】 -&gt; 【选择 Settings】进入设置页面，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_3.jpg" alt="ImgBed_GitHub_3.jpg"><br>【点击 Developer settings】进入开发设置页面，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_4.jpg" alt="ImgBed_GitHub_4.jpg"><br>【点击 Personal access tokens】 -&gt; 【点击 Generate new token】，进入新建私人认证页面，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_5.jpg" alt="ImgBed_GitHub_5.jpg"><br>【填写私人认证描述】，【全选repo】，【最后点击 Generate token】生成一个Token<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_6.jpg" alt="ImgBed_GitHub_6.jpg"><br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_7.jpg" alt="ImgBed_GitHub_7.jpg"><br><strong>注：此Token只会显示一次，请保存，用于后续配置PicGo</strong></p>
-<h2 id="PigGo"><a href="#PigGo" class="headerlink" title="PigGo"></a>PigGo</h2><p>PigGo，一款一键上传图片至图床，并生成 MarkDown 语法的图片链接的软件，同类型的软件还有很多。<br>本文选取该软件主要是因为在 VScode 平台使用该插件较为方便，该软件的其他版本以可对照参考进行配置，大同小异。</p>
-<h3 id="PigGo-配置"><a href="#PigGo-配置" class="headerlink" title="PigGo 配置"></a>PigGo 配置</h3><p>在插件库中搜索 PicGo 并安装，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_PicGo_1.jpg" alt="ImgBed_PicGo_1.jpg"><br>完毕后打开设置页面进行配置（<code>Ctrl+,</code>）；<br>【搜索 PicGo】 -&gt; 【下滑至 GitHub 相关处】进行配置：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_PicGo_2.jpg" alt="ImgBed_PicGo_2.jpg"></p>
+
+<h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><a href="https://cn-dxtz.github.io/工具配置/博客/图床/Github%20图床%20+%20jsDelivr%20CDN%20图床加速/" target="_blank" rel="noopener">前文</a>已经新建了 GitHub 的图床仓库，但该创建的仓库暂时只能本人直接通过网页上传图片，使用不便，于是通过新建一个私人认证，允许其他合规的程序通过认证直接访问仓库，更为便捷，具体步骤如下：
+<h3 id="新建私人认证"><a href="#新建私人认证" class="headerlink" title="新建私人认证"></a>新建私人认证</h3>在主页依次【点击个人头像】 -&gt; 【选择 Settings】进入设置页面，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_3.jpg" alt="ImgBed_GitHub_3.jpg"><br>【点击 Developer settings】进入开发设置页面，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_4.jpg" alt="ImgBed_GitHub_4.jpg"><br>【点击 Personal access tokens】 -&gt; 【点击 Generate new token】，进入新建私人认证页面，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_5.jpg" alt="ImgBed_GitHub_5.jpg"><br>【填写私人认证描述】，【全选repo】，【最后点击 Generate token】生成一个Token<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_6.jpg" alt="ImgBed_GitHub_6.jpg"><br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_GitHub_7.jpg" alt="ImgBed_GitHub_7.jpg"><br><strong>注：此Token只会显示一次，请保存，用于后续配置PicGo</strong>
+<h2 id="PigGo"><a href="#PigGo" class="headerlink" title="PigGo"></a>PigGo</h2>PigGo，一款一键上传图片至图床，并生成 MarkDown 语法的图片链接的软件，同类型的软件还有很多。<br>本文选取该软件主要是因为在 VScode 平台使用该插件较为方便，该软件的其他版本以可对照参考进行配置，大同小异。
+<h3 id="PigGo-配置"><a href="#PigGo-配置" class="headerlink" title="PigGo 配置"></a>PigGo 配置</h3>在插件库中搜索 PicGo 并安装，<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_PicGo_1.jpg" alt="ImgBed_PicGo_1.jpg"><br>完毕后打开设置页面进行配置（<code>Ctrl+,</code>）；<br>【搜索 PicGo】 -&gt; 【下滑至 GitHub 相关处】进行配置：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_PicGo_2.jpg" alt="ImgBed_PicGo_2.jpg">
 <ul>
 <li>3：选取当前图床：github</li>
 <li>4：仓库分支：master（图床默认分支，若有修改则自拟）</li>
@@ -130,12 +131,9 @@
 <li>8：token：之前保存的私人认证<br>注：若出现错误，请核对是否多或少 <strong>/</strong><h3 id="PicGo-使用"><a href="#PicGo-使用" class="headerlink" title="PicGo 使用"></a>PicGo 使用</h3>打开键盘快捷键设置目录（<code>Ctrl+K, Ctrl+S</code>），<br>搜索 PicGo 相关命令：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/ImgBed_PicGo_3.jpg" alt="ImgBed_PicGo_3.jpg"><br>可以看到一共有三个命令：</li>
 </ul>
 <ol>
-<li>从打开的文件浏览器手动插入图片：<pre><code>Ctrl + Alt + E
-</code></pre></li>
-<li>从剪贴板插入图片：<pre><code>Ctrl + Alt + U
-</code></pre></li>
-<li>从输入目录插入图片（相对目录和绝对目录都行）<pre><code>Ctrl + Alt + O
-</code></pre>使用后可知，十分简单，一键即可上传图片至图床，并生成 MarkDown 语法的图片链接。</li>
+<li>从打开的文件浏览器手动插入图片：<pre><code>Ctrl + Alt + E</code></pre></li>
+<li>从剪贴板插入图片：<pre><code>Ctrl + Alt + U</code></pre></li>
+<li>从输入目录插入图片（相对目录和绝对目录都行）<pre><code>Ctrl + Alt + O</code></pre>使用后可知，十分简单，一键即可上传图片至图床，并生成 MarkDown 语法的图片链接。</li>
 </ol>
 
     </div>

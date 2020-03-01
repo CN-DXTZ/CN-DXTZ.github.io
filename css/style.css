@@ -1,16 +1,10 @@
-html,
 body {
   background-color: #d8f1db;
   color: #0d2f0f;
   font-size: 1.4vw;
   line-height: 1.5;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   margin: 0;
-}
-.main {
-  flex: 1;
 }
 ::selection {
   background-color: #81c784;

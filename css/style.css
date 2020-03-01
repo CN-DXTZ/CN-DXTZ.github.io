@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: #d7eed9;
+  background-color: #d8f1db;
   color: #0d2f0f;
   font-size: 1.4vw;
   line-height: 1.5;
@@ -20,7 +20,7 @@ body {
   height: 0.6vw;
 }
 ::-webkit-scrollbar-track {
-  background-color: #d7eed9;
+  background-color: #d8f1db;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #43a047;
@@ -101,8 +101,8 @@ main>.posts {
 }
 .posts .post {
   margin: 1vw 11vw 9vw 11vw;
-  padding-left: 9vw;
-  padding-right: 7.5vw;
+  padding-left: 8.4vw;
+  padding-right: 7.7vw;
   background: #c7edcc;
   display: flex;
   flex-direction: column;
@@ -120,7 +120,9 @@ main>.posts {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2vw;
+}
+.posts .post .post-header .post-title {
+  margin: 2.5vw 0 0.5vw 0;
 }
 .posts .post .post-header .post-title .post-title-link {
   color: #0d2f0f;
@@ -162,12 +164,15 @@ main>.posts {
   font-size: 1.6vw;
 }
 .posts .post .post-header .post-belong {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: #388e3c;
   margin: 0.6vw;
   line-height: 3vw;
 }
 .posts .post .post-header .post-belong span {
-  margin-right: 1vw;
+  margin-right: 0.75vw;
 }
 .posts .post .post-header .post-belong i {
   font-size: 1.6vw;
@@ -191,9 +196,12 @@ main>.posts {
 .posts .post .post-header .post-belong .post-tags a {
   margin-right: 0.75vw;
 }
+.posts .post .post-header .post-belong .post-categories {
+  margin-right: 1vw;
+}
 .posts .post .post-content {
   margin: 1vw 0;
-  padding: 1vw 0;
+  width: 100%;
   counter-reset: H2;
 }
 .posts .post .post-content a {
@@ -345,26 +353,34 @@ main>.posts {
   color: #ff9800;
 }
 .posts .post .post-content blockquote {
-  padding: 0.1vw 0.8vw;
-  margin-left: 0;
+  margin-inline-start: 0.7vw;
+  padding: 0 0 0 0.7vw;
   width: 96%;
   border-left: 0.4vw solid #4caf50;
   border-radius: 0.4vw;
-  background-color: #aedcb0;
+  background-color: #b6e2ba;
   list-style: none;
-  word-break: break-all;
+}
+.posts .post .post-content blockquote p {
+  padding: 0.7vw 0 0.5vw 0;
+}
+.posts .post .post-content blockquote >ul,
+.posts .post .post-content blockquote >ol {
+  margin-block-start: -1vw;
 }
 .posts .post .post-content blockquote blockquote {
+  margin-block-start: -1.2vw;
+  margin-block-end: -1.2vw;
   border-left: 0.4vw solid #66bb6a;
-  background-color: #b6e2ba;
+  background-color: #bfe7c3;
 }
 .posts .post .post-content blockquote blockquote blockquote {
   border-left: 0.4vw solid #81c784;
-  background-color: #bfe7c3;
+  background-color: #c7edcc;
 }
 .posts .post .post-content blockquote blockquote blockquote blockquote {
   border-left: 0.4vw solid #a5d6a7;
-  background-color: #c7edcc;
+  background-color: #cfefd3;
 }
 .posts .post .post-content blockquote:hover {
   border-color: #ffa726;
@@ -402,7 +418,8 @@ main>.posts {
   background-color: #bfe7c3;
 }
 .posts .post .readmore {
-  padding-bottom: 3vw;
+  margin-top: 0.5vw;
+  padding-bottom: 1vw;
 }
 .posts .post .readmore a {
   color: #2e7d32;
@@ -418,6 +435,71 @@ main>.posts {
   color: #fff;
   background-color: #ffa726;
   border-color: #ffa726;
+}
+.posts .post .post-nav {
+  width: 115%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.8vw;
+  padding: 1.7vw 0;
+  border-top: 1px dashed #66bb6a;
+}
+.posts .post .post-nav a {
+  color: #09af00;
+  font-size: 1.5vw;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.posts .post .post-nav a:hover {
+  color: #ff6f00;
+}
+.posts .post .post-nav a .iconfont {
+  font-size: 1.5vw;
+}
+.posts .post .post-nav .post-nav-prev a {
+  float: left;
+  position: relative;
+}
+.posts .post .post-nav .post-nav-prev a:hover {
+  transform: translate(-1vw, 0);
+}
+.posts .post .post-nav .post-nav-prev a::after {
+  content: '';
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  height: 0.2vh;
+  background-color: #ff6f00;
+  transform: scale(0);
+  transition: 0.5s;
+  transform-origin: right;
+}
+.posts .post .post-nav .post-nav-prev a:hover::after {
+  transform: scale(1);
+}
+.posts .post .post-nav .post-nav-next a {
+  float: right;
+  position: relative;
+}
+.posts .post .post-nav .post-nav-next a:hover {
+  transform: translate(1vw, 0);
+}
+.posts .post .post-nav .post-nav-next a::after {
+  content: '';
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  height: 0.2vh;
+  background-color: #ff6f00;
+  transform: scale(0);
+  transition: 0.5s;
+  transform-origin: left;
+}
+.posts .post .post-nav .post-nav-next a:hover::after {
+  transform: scale(1);
 }
 .archive-main-container {
   margin: 12vw 11vw;

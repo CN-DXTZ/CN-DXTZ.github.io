@@ -103,7 +103,7 @@ main>.posts {
   align-items: center;
   border-top: 0.75vh solid #4caf50;
   border-radius: 1vw;
-  box-shadow: 0.1vw 0.15vw 0.25vw 0.1vw rgba(0,0,0,0.19);
+  box-shadow: 0.1vw 0.15vw 1vw 0.25vw rgba(0,0,0,0.19);
   transition: 0.5s;
 }
 .posts .post:hover {
@@ -501,32 +501,43 @@ main>.posts {
   background: #d8f1db;
   border-radius: 0.5vw;
   box-shadow: 0.1vw 0.15vw 0.25vw 0.1vw rgba(0,0,0,0.19);
-  transition-property: width;
-  transition-duration: 0.5s;
+  transition-property: box-shadow, transform, left;
+  transition-duration: 0.3s;
 }
 .posts .post-toc:hover {
   box-shadow: 0 0 1vw 0.5vw rgba(0,0,0,0.19);
 }
 .posts .post-toc .toc-title {
   background-color: #66bb6a;
+  height: 2.9vw;
+  line-height: 2.9vw;
   text-align: center;
   font-size: 1.3vw;
   font-weight: bold;
   color: #fff;
-  padding: 0.7vw 1.9vw 0.7vw 0;
+  vertical-align: center;
   border-top-left-radius: 0.4vw;
   border-top-right-radius: 0.4vw;
-  line-height: initial;
+  transition-duration: 0.3s;
 }
 .posts .post-toc .toc-title .iconfont {
   font-size: 1.2vw;
-  padding-right: 0.6vw;
+}
+.posts .post-toc .toc-title .icon-mulu {
+  position: relative;
+}
+.posts .post-toc .toc-title .icon-houtui {
+  float: right;
+  background-color: #09af00;
+  border-top-right-radius: 0.4vw;
+  height: 100%;
+  width: 2.5vw;
 }
 .posts .post-toc .toc>li.toc-item>a.toc-link {
   font-weight: bold;
 }
 .posts .post-toc .toc {
-  width: 19.5vw;
+  width: 18.1vw;
   max-height: 70vh;
   overflow-y: auto;
   margin: 0;

@@ -501,7 +501,7 @@ main>.posts {
   background: #d8f1db;
   border-radius: 0.5vw;
   box-shadow: 0.1vw 0.15vw 0.25vw 0.1vw rgba(0,0,0,0.19);
-  transition-property: box-shadow;
+  transition-property: width;
   transition-duration: 0.5s;
 }
 .posts .post-toc:hover {
@@ -560,10 +560,17 @@ main>.posts {
   transition: 0.3s;
 }
 .posts .post-toc .toc a:hover {
-  color: #ff6f00;
-  border-left: 0.25vw solid #ffa726;
+  color: #ff6f00 !important;
+  border-left: 0.3vw solid #ffa726;
   border-radius: 0.2vw;
   background-color: #bfe7c3;
+}
+.actived {
+  background-color: #66bb6a;
+  color: #fff !important;
+  border-radius: 0.2vw;
+  border-left: 0.3vw solid #43a047;
+  transition: 0.3s;
 }
 .archive-main-container {
   margin: 12vw 11vw;

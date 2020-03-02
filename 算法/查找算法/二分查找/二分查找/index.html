@@ -11,7 +11,9 @@
 <link rel="stylesheet" href="/css/style.css">
 
 	<link href="//at.alicdn.com/t/font_1660778_ufn05bndyb.css" rel="stylesheet">
-	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/prism.css" rel="stylesheet">
+	
+	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/prism.min.css" rel="stylesheet">
+	
 	<link href="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/css/third%20party/jquery.fancybox.min.css" rel="stylesheet">
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -89,12 +91,12 @@
 
         <span class="post-words">
             <i class="iconfont icon-write"></i>
-            3.8k字
+            3.9k字
         </span>
 
         <span class="post-readtime">
             <i class="iconfont icon-shijian"></i>
-            14分钟
+            15分钟
         </span>
 
     </div>
@@ -147,7 +149,7 @@
     return -1;
 }
 </code></pre>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>以上二分查找的传统版十分易于理解，但存在以下一些细节上的不足，并针对性地进行改良提升：</p>
+<h2 id="优化-1"><a href="#优化-1" class="headerlink" title="优化 1"></a>优化 1</h2><h2 id="优化-2"><a href="#优化-2" class="headerlink" title="优化 2"></a>优化 2</h2><h2 id="优化-3"><a href="#优化-3" class="headerlink" title="优化 3"></a>优化 3</h2><h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>以上二分查找的传统版十分易于理解，但存在以下一些细节上的不足，并针对性地进行改良提升：</p>
 <h3 id="中间位置索引计算，防溢出"><a href="#中间位置索引计算，防溢出" class="headerlink" title="中间位置索引计算，防溢出"></a>中间位置索引计算，防溢出</h3><p>传统版中间位置索引计算如下：</p>
 <pre><code class="lang-java">mid = (left + right) / 2;
 </code></pre>
@@ -194,15 +196,15 @@
 }
 </code></pre>
 <p>上述改良提升了算法的实用性，但可扩展性不强，适用范围不广。<br>因为如需返回序列中不大于目标值的最大（最后一个）索引，则应修改为 <code>return  right</code>，<br>然而对于每一次需求，对于具体返回 left 还是 right ，都需进行上述繁琐的分析，扩展性不强。<br>故此以下提出更为明晰的方法。<br>（<em>下述提及  T ∈ 或 ∉ [L, R] 时，不考虑目标值插入位置不属于目标序列时的情况</em>）</p>
-<h3 id="循环终止条件变为-L-R"><a href="#循环终止条件变为-L-R" class="headerlink" title="循环终止条件变为 L == R"></a>循环终止条件变为 L == R</h3><p>之所以需要判断最终返回 left 还是 right，是因为最终循环终止的条件是 L &gt; R，<br>更准确的说此时 L = R + 1，形似 …, <strong>R], [L</strong>, …，<br>此时 L 与 R 反向越界，区间不复存在，故最终需要判断具体返回 left 还是 right。</p>
+<h4 id="循环终止条件变为-L-R"><a href="#循环终止条件变为-L-R" class="headerlink" title="循环终止条件变为 L == R"></a>循环终止条件变为 L == R</h4><p>之所以需要判断最终返回 left 还是 right，是因为最终循环终止的条件是 L &gt; R，<br>更准确的说此时 L = R + 1，形似 …, <strong>R], [L</strong>, …，<br>此时 L 与 R 反向越界，区间不复存在，故最终需要判断具体返回 left 还是 right。</p>
 <p>而通过修改循环条件 <code>left &lt;= right</code> 为 <code>left &lt; right</code>，即可将循环终止条件变为 L &gt;= R，<br>试图当 L = R 时退出循环，形似 …, <strong>[L R]</strong>, …，<br>如果成功，此时由于 L = R 二者重合，则无需区分判断。</p>
 <p>但由之前的优化分析可知：<br>当 M = T = L + 1，R = L + 1 或 L + 2 时，进一步迭代会出现 T ∉ [L, R]（见图1<strong>蓝色框</strong>）<br>而由于修改了循环终止条件，此时又有 L = R 循环终止，故而无法得出正确答案。<br>故除了上述修改循环终止条件外，还需修改迭代过程，让目标值不超出范围。</p>
-<h3 id="修改循环迭代过程"><a href="#修改循环迭代过程" class="headerlink" title="修改循环迭代过程"></a>修改循环迭代过程</h3><p>由图1<strong>蓝色框</strong>可以看出，造成目标值超出范围的核心在于：<br>取中间值时是<strong>向下取整</strong>：<code>M = (L + M) &gt;&gt;&gt; 1</code>，当 L &lt; R 时必有 M ∈ <strong>[L, R)</strong><br>则当 nums[M] &lt; nums[T] 时，L = M + 1 ，必不会使目标值超出范围，<br>而当 nums[M] &gt; nums[T] 时，R = M - 1，则有可能使得目标值超出范围</p>
+<h4 id="修改循环迭代过程"><a href="#修改循环迭代过程" class="headerlink" title="修改循环迭代过程"></a>修改循环迭代过程</h4><p>由图1<strong>蓝色框</strong>可以看出，造成目标值超出范围的核心在于：<br>取中间值时是<strong>向下取整</strong>：<code>M = (L + M) &gt;&gt;&gt; 1</code>，当 L &lt; R 时必有 M ∈ <strong>[L, R)</strong><br>则当 nums[M] &lt; nums[T] 时，L = M + 1 ，必不会使目标值超出范围，<br>而当 nums[M] &gt; nums[T] 时，R = M - 1，则有可能使得目标值超出范围</p>
 <p>故而为使得目标值恒不超出范围，合并 nums[M] &gt; nums[T] 和 nums[M] = nums[T] 的情况：<br>即当 nums[M] &gt;= nums[T] 时，R = M</p>
 <p>故之前的子区间划分 M 为单独项，即分为：[L, M - 1]，[M]，[M + 1, R]，<br>每次查找失败则将查找区间 [L, R] 缩小一半至 [L, M - 1] 或 [M + 1, R]，<br>而新的子区间划分不再单独划分 M，分为：[L, M] 和 [M + 1, R]，<br>每次查找失败则将查找区间 [L, R] 缩小一半至 [L, M] 或 [M + 1, R]，区别如下图5：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/二分查找_12.jpg" alt="二分查找_12.jpg"><center>图5</center></p>
 <p>通过上述修改循环迭代过程，可以确保当序列中存在大于目标值的元素时，<br>在迭代的任何阶段，都有 T ∈ [L, R]，<br>又由之前修改的循环终止条件，保证了最终循环结束时有 L = R，形似 …, <strong>[L R]</strong>, …，即最终有 T = L = R。</p>
-<h3 id="判断目标值插入位置是否在目标序列内"><a href="#判断目标值插入位置是否在目标序列内" class="headerlink" title="判断目标值插入位置是否在目标序列内"></a>判断目标值插入位置是否在目标序列内</h3><p>以上基本完善了二分查找，不过对提及  T ∈ 或 ∉ [L, R] 时，未考虑目标值插入位置不属于目标序列时的情况，<br>而实则在迭代的任何阶段，都有 T ∈ [L, R] <strong>⊆ [0, length - 1]</strong>，但完整的值域应为 <strong>[0, length]</strong>，<br>即没有考虑，当序列中不存在大于目标值的元素时，需返回序列长度（末端元素索引 +1）。</p>
+<h4 id="判断目标值插入位置是否在目标序列内"><a href="#判断目标值插入位置是否在目标序列内" class="headerlink" title="判断目标值插入位置是否在目标序列内"></a>判断目标值插入位置是否在目标序列内</h4><p>以上基本完善了二分查找，不过对提及  T ∈ 或 ∉ [L, R] 时，未考虑目标值插入位置不属于目标序列时的情况，<br>而实则在迭代的任何阶段，都有 T ∈ [L, R] <strong>⊆ [0, length - 1]</strong>，但完整的值域应为 <strong>[0, length]</strong>，<br>即没有考虑，当序列中不存在大于目标值的元素时，需返回序列长度（末端元素索引 +1）。</p>
 <p>故此，需要单独判断当序列中不存在大于目标值的元素时，应返回序列长度。<br>（<em>也可通过判断最终的 nums[left] 和 target 的大小关系确定是否为该特例</em>）</p>
 <p>故最终二分查找完善版的代码如下：</p>
 <pre><code class="lang-java">public int searchInsert(int[] nums, int target) {
@@ -228,7 +230,7 @@
 <li>取整方式与恰当匹配的迭代过程（子区间划分方式）</li>
 </ul>
 <p>确保了 L = R 循环终止，且迭代任何阶段必有 T ∈ [L, R] ，且区间长度终将逼近至 1，<br>即最终有 T = L = R。</p>
-<h3 id="完整版二分查找算法分析过程"><a href="#完整版二分查找算法分析过程" class="headerlink" title="完整版二分查找算法分析过程"></a>完整版二分查找算法分析过程</h3><p>故此完整版的二分查找算法分析过程如下：</p>
+<h4 id="完整版二分查找算法分析过程1"><a href="#完整版二分查找算法分析过程1" class="headerlink" title="完整版二分查找算法分析过程1"></a>完整版二分查找算法分析过程1</h4><h4 id="完整版二分查找算法分析过程2"><a href="#完整版二分查找算法分析过程2" class="headerlink" title="完整版二分查找算法分析过程2"></a>完整版二分查找算法分析过程2</h4><h4 id="完整版二分查找算法分析过程3"><a href="#完整版二分查找算法分析过程3" class="headerlink" title="完整版二分查找算法分析过程3"></a>完整版二分查找算法分析过程3</h4><h4 id="完整版二分查找算法分析过程"><a href="#完整版二分查找算法分析过程" class="headerlink" title="完整版二分查找算法分析过程"></a>完整版二分查找算法分析过程</h4><p>故此完整版的二分查找算法分析过程如下：</p>
 <blockquote>
 <p>完整版二分查找算法分析过程：</p>
 <ol>
@@ -333,6 +335,12 @@
         </span>
     </div>
 </article>
+<div class="post-toc">
+    <div class="toc-title">
+        <i class="iconfont icon-mulu"></i>文章目录
+    </div>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化-1"><span class="toc-number">2.</span> <span class="toc-text">优化 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化-2"><span class="toc-number">3.</span> <span class="toc-text">优化 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化-3"><span class="toc-number">4.</span> <span class="toc-text">优化 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化"><span class="toc-number">5.</span> <span class="toc-text">优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#中间位置索引计算，防溢出"><span class="toc-number">5.1.</span> <span class="toc-text">中间位置索引计算，防溢出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查找失败，返回顺序插入位置"><span class="toc-number">5.2.</span> <span class="toc-text">查找失败，返回顺序插入位置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#循环终止条件变为-L-R"><span class="toc-number">5.2.1.</span> <span class="toc-text">循环终止条件变为 L &#x3D;&#x3D; R</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改循环迭代过程"><span class="toc-number">5.2.2.</span> <span class="toc-text">修改循环迭代过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#判断目标值插入位置是否在目标序列内"><span class="toc-number">5.2.3.</span> <span class="toc-text">判断目标值插入位置是否在目标序列内</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完整版二分查找算法分析过程1"><span class="toc-number">5.2.4.</span> <span class="toc-text">完整版二分查找算法分析过程1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完整版二分查找算法分析过程2"><span class="toc-number">5.2.5.</span> <span class="toc-text">完整版二分查找算法分析过程2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完整版二分查找算法分析过程3"><span class="toc-number">5.2.6.</span> <span class="toc-text">完整版二分查找算法分析过程3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完整版二分查找算法分析过程"><span class="toc-number">5.2.7.</span> <span class="toc-text">完整版二分查找算法分析过程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number">6.</span> <span class="toc-text">补充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#循环迭代过程的确定原则"><span class="toc-number">6.1.</span> <span class="toc-text">循环迭代过程的确定原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目标值不确定在目标序列内"><span class="toc-number">6.2.</span> <span class="toc-text">目标值不确定在目标序列内</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中位数加-“-”-技巧"><span class="toc-number">6.3.</span> <span class="toc-text">中位数加 “#” 技巧</span></a></li></ol></li></ol>
+</div>
 </section>	
 
     </main>
@@ -374,27 +382,44 @@
 	</div>
 </div>
 
+    <div class="after-footer">
+
     
 <script src="/js/navbar.js"></script>
 
 
+    
 <script src="/js/littleCode.js"></script>
 
 
-<script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/instantpage-3.0.0.js" type="module"></script>
+    <script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/instantpage.min.js"
+        type="module"></script>
 
-    <script src="https://unpkg.com/vanilla-back-to-top@7.2.0/dist/vanilla-back-to-top.min.js"></script>
+    
+    <script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/vanilla-back-to-top.min.js"
+        type="module"></script>
     
 <script src="/js/addBackToTop.js"></script>
 
+    
 
-<script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/prism.js" type="module"></script>
-<script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/jquery.fancybox.min.js" type="module"></script>
+    <script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/prism.min.js" type="module"></script>
 
+    
+        <script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/jquery.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/CN-DXTZ/CN-DXTZ.github.io/js/third%20party/jquery.fancybox.min.js"
+            type="module"></script>
+        
 <script src="/js/image.js"></script>
 
 
+        
+<script src="/js/toc.js"></script>
+
+    
+
+
+</div>
 </body>
 
 </html>

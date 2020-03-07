@@ -32,8 +32,8 @@ body {
   box-shadow: 0 0 0.5vw 0.3vw rgba(0,0,0,0.19);
   transition: 0.5s;
 }
-.header .blog-title .logo {
-  padding: 4vw;
+.header .blog-title a {
+  padding: 0 2vw 0 3vw;
   color: #fff;
   font-size: 4vw;
   font-weight: bold;
@@ -41,7 +41,7 @@ body {
   transition: 0.5s;
 }
 .header .menu {
-  padding-right: 2vw;
+  padding-right: 1.5vw;
 }
 .header .menu .menu-item {
   display: inline-block;
@@ -78,12 +78,12 @@ body {
   position: fixed;
   height: 3vw;
 }
-.header-fixed .blog-title .logo {
+.header-fixed .blog-title a {
   color: #0d2f0f;
   font-size: 2vw;
 }
 .header-fixed .menu {
-  padding-right: 1vw;
+  padding-right: 0.5vw;
 }
 .header-fixed .menu .menu-item .menu-item-link {
   color: #0d2f0f;
@@ -94,9 +94,9 @@ main>.posts {
   margin-top: 12vw;
 }
 .posts .post {
-  margin: 1vw 11vw 8vw 11vw;
-  padding-left: 9.1vw;
-  padding-right: 7.7vw;
+  margin: 1vw 11vw 7vw 11vw;
+  padding-left: 8.7vw;
+  padding-right: 7.3vw;
   background: #c7edcc;
   display: flex;
   flex-direction: column;
@@ -128,7 +128,6 @@ main>.posts {
 }
 .posts .post .post-header .post-title .post-title-link:hover {
   color: #ff6f00;
-  font-size: 2.7vw;
 }
 .posts .post .post-header .post-title .post-title-link::after {
   content: '';
@@ -505,7 +504,7 @@ main>.posts {
   transition-duration: 0.3s;
 }
 .posts .post-toc:hover {
-  box-shadow: 0 0 1vw 0.5vw rgba(0,0,0,0.19);
+  box-shadow: 0 0 0.8vw 0.4vw rgba(0,0,0,0.19);
 }
 .posts .post-toc .toc-title {
   background-color: #66bb6a;
@@ -574,7 +573,7 @@ main>.posts {
   color: #ff6f00 !important;
   border-left: 0.3vw solid #ffa726;
   border-radius: 0.2vw;
-  background-color: #bfe7c3;
+  background-color: #b6e2ba;
 }
 .actived {
   background-color: #66bb6a;
@@ -786,6 +785,8 @@ main>.posts {
 }
 .pager-nav {
   text-align: center;
+  position: relative;
+  top: -2vw;
 }
 .pager-nav a {
   text-decoration: none;
@@ -797,7 +798,7 @@ main>.posts {
   margin: 0.5vw;
   color: #fff;
   font-size: 1.5vw;
-  background-color: #388e3c;
+  background-color: #4caf50;
   border-radius: 0.3vw;
 }
 .pager-nav .page-number:hover,

@@ -402,13 +402,24 @@ main>.posts {
   border-bottom: 0.1vw solid #0d2f0f;
 }
 .posts .post .post-content table thead {
-  background-color: #b2dfb5;
+  background-color: #a5d6a7;
   font-weight: bold;
   border-top: 0.1vw solid #0d2f0f;
   border-bottom: 0.1vw solid #0d2f0f;
+  padding: 3vw 0;
 }
-.posts .post .post-content table tbody {
+.posts .post .post-content table th {
+  padding: 0.3vw 0;
+}
+.posts .post .post-content table tbody tr {
+  background-color: #b2dfb5;
+}
+.posts .post .post-content table tbody tr:nth-child(odd) {
   background-color: #bfe7c3;
+}
+.posts .post .post-content table td {
+  padding: 0.25vw 0;
+  line-height: 1.8vw;
 }
 .posts .post .readmore {
   margin-top: 0.5vw;
@@ -556,7 +567,7 @@ main>.posts {
   padding: 0 0.3vw;
 }
 .posts .post-toc .toc .toc-child {
-  padding-left: 0.7vw;
+  padding-left: 0.85vw;
 }
 .posts .post-toc .toc .toc-child li {
   padding: 0;
@@ -782,6 +793,9 @@ main>.posts {
 .tag-page-container .tag-page-title .iconfont {
   font-size: 2.3vw;
   margin-right: 0.5vw;
+}
+.about {
+  padding: 5vw 0;
 }
 .pager-nav {
   text-align: center;

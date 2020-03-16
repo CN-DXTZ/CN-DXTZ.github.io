@@ -193,7 +193,7 @@
 <li>多个线程（包括主线程）并发执行，（随机）抢占CPU的执行调度</li>
 </ul>
 <p>具体的运行时的内存分配过程如下：<br><img src="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/PicGo/Thread_1_3.png" alt="Thread_1_3.png"></p>
-<h4 id="实现Runnable"><a href="#实现Runnable" class="headerlink" title="实现Runnable"></a>实现Runnable</h4><p>之前是通过继承Thread类重写run()方法实现的线程执行体，而本质上Thread类的run()方法来源于实现Runnable接口——<code>public class Thread implements Runnable {}</code><br><code>java.lang.Runnable</code> 包提供了Runnable接口，该接口只有一个方法——run()方法。</p>
+<h4 id="实现Runnable"><a href="#实现Runnable" class="headerlink" title="实现Runnable"></a>实现Runnable</h4><p>之前是通过继承Thread类重写run()方法实现的线程执行体，而本质上Thread类的run()方法来源于实现Runnable函数式接口——<code>public class Thread implements Runnable {}</code><br><code>java.lang.Runnable</code> 包提供了Runnable函数式接口，该函数式接口提供的唯一的抽象方法即为run()方法。</p>
 <p>使用方法类似，通过<del>继承Thread类</del>实现Runnable接口来重写run()方法实现线程执行体，再通过<del>Thread子类对象</del>将Runnable实现类对象传递给Thread（<code>Thread(Runnable target)</code>）构造Thread类对象，最后依旧通过start()方法启动线程，具体的步骤如下：</p>
 <ol>
 <li>实现Runnable接口重写run()（类似继承Thread）</li>
@@ -715,6 +715,10 @@ class Salesperson implements Runnable {
 
     <div class="post-nav">
         <span class="post-nav-prev">
+            
+            <a href="/JAVA/JAVA%20Core/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/" rel="prev" title="网络编程入门">
+                <i class="iconfont icon-houtui"></i>网络编程入门
+            </a>
             
         </span>
         <span class="post-nav-next">

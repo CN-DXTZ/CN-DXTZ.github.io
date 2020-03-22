@@ -73,12 +73,18 @@
 </header>
 
     <main class="main">
+        <div class="tag-page-container">
+    <div class="tag-page-title">
+        <h2 class="tag_title"><i class="iconfont icon-tags"></i>锁</h2>
+    </div>
+    <div class="tag-page-cards">
+        
         <section class="posts">
-	<article class="post">
+            <article class="post">
     <div class="post-header">
     <h1 class="post-title">
-        <a class="post-title-link" href="/JAVA/JAVA Core/网络编程/网络编程入门/">
-            网络编程入门
+        <a class="post-title-link" href="/多线程入门/">
+            多线程入门
         </a>
     </h1>
 
@@ -86,17 +92,17 @@
 
         <span class="post-date">
             <i class="iconfont icon-calendar"></i>
-            2020-03-10
+            2020-03-05
         </span>
 
         <span class="post-words">
             <i class="iconfont icon-write"></i>
-            27字
+            5.1k字
         </span>
 
         <span class="post-readtime">
             <i class="iconfont icon-shijian"></i>
-            1分钟
+            20分钟
         </span>
 
     </div>
@@ -106,59 +112,46 @@
         <span class="post-tags">
             <i class="iconfont icon-tags"></i>
             
-            <a href="/tags/JAVA-Core/"> JAVA Core</a> <a href="/tags/网络编程/"> 网络编程</a>
+            <a href="/tags/线程/"> 线程</a> <a href="/tags/多线程/"> 多线程</a> <a href="/tags/同步/"> 同步</a> <a href="/tags/锁/"> 锁</a>
         </span>
 
         <span class="post-categories">
             <i class="iconfont icon-folderopen"></i>
             
-            <a href="/categories/JAVA/"> JAVA</a> / <a href="/categories/JAVA/JAVA-Core/"> JAVA Core</a> / <a href="/categories/JAVA/JAVA-Core/网络编程/"> 网络编程</a>
+            <a href="/categories/JAVA/"> JAVA</a> / <a href="/categories/JAVA/JAVA-Core/"> JAVA Core</a> / <a href="/categories/JAVA/JAVA-Core/多线程/"> 多线程</a>
         </span>
     </div>
 </div>
 
     <div class="post-content">
-        <a id="more"></a>
-<h2 id="计算机网络基础"><a href="#计算机网络基础" class="headerlink" title="计算机网络基础"></a>计算机网络基础</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
-<li>IPV4:</li>
-<li>IPV6:</li>
-<li>主机名/域名:</li>
-<li>端口号</li>
-<li>服务类型：http，telent，ftp，smtp</li>
+        <div onclick="location.href='/多线程入门/' ">
+            <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>线程和进程：</p>
+<ul>
+<li>进程：程序载入内存后的程序实例，是系统运行程序的基本单位。  <ul>
+<li>每个进程都<strong>独占使用主存</strong>（虚拟内存），即都有独立的代码和数据空间（进程上下文）。</li>
+<li>进程的创建、释放、切换的开销大。</li>
 </ul>
-
+</li>
+<li>线程：线程是程序内部的顺序控制流，可视作轻量的进程，是进程执行，CPU调度的基本单位。<ul>
+<li>每个线程都运行在各自进程的虚拟内存中，即<strong>共享代码和数据空间</strong>；<br>但每个线程有<strong>独立的运行栈和程序计数器</strong>。</li>
+<li>线程的创建、释放、切换的开销小，内部通信效率高。</li>
+</ul>
+</li>
+</ul>
+        </div>
     </div>
 
-    <div class="post-nav">
-        <span class="post-nav-prev">
-            
-            <a href="/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" rel="prev" title="重装WIN10">
-                <i class="iconfont icon-houtui"></i>重装WIN10
-            </a>
-            
-        </span>
-        <span class="post-nav-next">
-            
-            <a href="/JAVA/JAVA%20Core/%E5%A4%9A%E7%BA%BF%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%85%A5%E9%97%A8/" rel="next" title="多线程入门">
-                多线程入门<i class="iconfont icon-qianjin"></i>
-            </a>
-            
-        </span>
-    </div>
+    <p class="readmore">
+        <a href="/多线程入门/">
+            阅读全文
+        </a>
+    </p>
+
 </article>
-
-<div class="post-toc">
-    <div class="toc-title">
-        <i class="iconfont icon-mulu"></i>
-        文章目录
-        <span>
-            <i class="iconfont icon-houtui"></i>
-        </span>
+        </section>
+        
     </div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络基础"><span class="toc-number">1.</span> <span class="toc-text">计算机网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">1.1.</span> <span class="toc-text">概念</span></a></li></ol></li></ol>
 </div>
-</section>	
-
     </main>
 
     <div class="footer">
@@ -216,15 +209,6 @@
     
 <script src="/js/addBackToTop.js"></script>
 
-
-    
-        <script src="//cdn.jsdelivr.net/gh/CN-DXTZ/hexo-theme-Minimalist/source/js/third%20party/jquery.fancybox.min.js"type="module"></script>
-        
-<script src="/js/jquery.fancybox.image.js"></script>
-
-
-        
-<script src="/js/jquery.toc.js"></script>
 
     
 

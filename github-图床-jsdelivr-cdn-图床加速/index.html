@@ -77,7 +77,7 @@
 	<article class="post">
     <div class="post-header">
     <h1 class="post-title">
-        <a class="post-title-link" href="/工具配置/博客/图床/Github 图床 + jsDelivr CDN 图床加速/">
+        <a class="post-title-link" href="/github-图床-jsdelivr-cdn-图床加速/">
             Github 图床 + jsDelivr CDN 图床加速
         </a>
     </h1>
@@ -118,7 +118,7 @@
 </div>
 
     <div class="post-content">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>用 MarkDown 写文章一定会涉及到一个问题 —— 插入图片，而图床是一个很好的解决方案。<br>图床，指储存图片的服务器，通过上传图片至服务器，之后即可通过所生成的链接随时访问。<br>本文选取 Github 作为图床的云端，并通过 jsDelivr CND 加速访问，以实现简单快速且免费稳定的图床配置。<br>而若想进一步一键上传图片并生成图片链接，参见下一篇：<a href="https://cn-dxtz.github.io/工具配置/博客/图床/Github%20图床%20+%20PicGo%20图床插件（VScode版）/" target="_blank" rel="noopener">《Github 图床 + PicGo 图床插件（VScode版）》</a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>用 MarkDown 写文章一定会涉及到一个问题 —— 插入图片，而图床是一个很好的解决方案。<br>图床，指储存图片的服务器，通过上传图片至服务器，之后即可通过所生成的链接随时访问。<br>本文选取 Github 作为图床的云端，并通过 jsDelivr CND 加速访问，以实现简单快速且免费稳定的图床配置。<br>而若想进一步一键上传图片并生成图片链接，参见下一篇：<a href="https://cn-dxtz.github.io/Github%20图床%20+%20PicGo%20图床插件（VScode版）/" target="_blank" rel="noopener">《Github 图床 + PicGo 图床插件（VScode版）》</a></p>
 <a id="more"></a>
 <h2 id="GitHub-配置"><a href="#GitHub-配置" class="headerlink" title="GitHub 配置"></a>GitHub 配置</h2><p>图床的选择有很多，不一一列举，但是想要不担心小网站挂掉跑路，还得选大厂。<br>但大厂一般不但要收费，而且还操繁琐。故此既想免费，且操作简单，Github 必然是首选。<br>而且 Github 还基本不限流量。(<em>官方说明：推荐 1GB 以下，超过可能会收到邮件提醒；最大限制为 100GB，超过 75GB 每次更改都会警告。 — <a href="https://help.github.com/en/github/managing-large-files/what-is-my-disk-quota" target="_blank" rel="noopener">What is my disk quota? · GitHub Help</a></em>)</p>
 <h3 id="创建图床仓库"><a href="#创建图床仓库" class="headerlink" title="创建图床仓库"></a>创建图床仓库</h3><p>首先在 GitHub 上创建一个图床的云端仓库，具体步骤如下：<br>打开<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>官网，登录/注册后，<br>在主页选择【new】进入新建仓库页面，</p>
@@ -136,21 +136,21 @@
 <h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><p>使用方法也极为简单，只是将之前的域名 <code>raw.githubusercontent.com/</code> 用 <code>cdn.jsdelivr.net/gh/</code> 进行替换，并删除 <code>master/</code>，即</p>
 <pre><code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名/[文件路径...]/文件名
 </code></pre><p>则上述测试文件即可通过：<br><a href="https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/test.png" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/CN-DXTZ/Blog-Img-Bed/test.png</a> 进行访问<br><em>更为详细地使用方法参见 <a href="https://www.jsdelivr.com/?docs=gh" target="_blank" rel="noopener">jsDelivr官方文档</a></em></p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过上述方法，即可免费稳定且高效快速地使用图床，然而此方法，图片的上传与网络链接的生成仍然过于繁琐，故此使用一种更为便捷地方法，可以一键上传图片并生成 MarkDown 语法的图片链接，参见：<a href="https://cn-dxtz.github.io/工具配置/博客/图床/Github%20图床%20+%20PicGo%20图床插件（VScode版）/" target="_blank" rel="noopener">《Github 图床 + PicGo 图床插件（VScode版）》</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过上述方法，即可免费稳定且高效快速地使用图床，然而此方法，图片的上传与网络链接的生成仍然过于繁琐，故此使用一种更为便捷地方法，可以一键上传图片并生成 MarkDown 语法的图片链接，参见：<a href="https://cn-dxtz.github.io/Github%20图床%20+%20PicGo%20图床插件（VScode版）/" target="_blank" rel="noopener">《Github 图床 + PicGo 图床插件（VScode版）》</a></p>
 
     </div>
 
     <div class="post-nav">
         <span class="post-nav-prev">
             
-            <a href="/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/%E5%8D%9A%E5%AE%A2/%E5%9B%BE%E5%BA%8A/Github%20%E5%9B%BE%E5%BA%8A%20+%20PicGo%20%E5%9B%BE%E5%BA%8A%E6%8F%92%E4%BB%B6%EF%BC%88VScode%E7%89%88%EF%BC%89/" rel="prev" title="Github 图床 + PicGo 图床插件（VScode版）">
+            <a href="/github-%E5%9B%BE%E5%BA%8A-picgo-%E5%9B%BE%E5%BA%8A%E6%8F%92%E4%BB%B6%EF%BC%88vscode%E7%89%88%EF%BC%89/" rel="prev" title="Github 图床 + PicGo 图床插件（VScode版）">
                 <i class="iconfont icon-houtui"></i>Github 图床 + PicGo 图床插件（VScode版）
             </a>
             
         </span>
         <span class="post-nav-next">
             
-            <a href="/%E6%9D%82/%E9%9A%8F%E7%AC%94/Hello-World/" rel="next" title="Hello World">
+            <a href="/hello-world/" rel="next" title="Hello World">
                 Hello World<i class="iconfont icon-qianjin"></i>
             </a>
             
